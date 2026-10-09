@@ -86,7 +86,7 @@ Follow `{owner}/.github/brand/WRITING-STYLE.md` (summary here; CI: `npm run chec
 - No emoji in product UI, docs, or brand assets.
 - Avoid banned filler: elevate, seamless, unleash, leverage, delve, tapestry, game-changer, next-level, robust, AI-powered (as a headline), and the rest of WRITING-STYLE §7.
 - Name: **LakeHouse** / **LakeHouse Studio** only (never "Lakehouse" or "Lake House").
-- Never mention clients, client projects, or Ennead content.
+- Never mention clients, client projects, or any employer-firm content.
 
 ## Required local checks
 
