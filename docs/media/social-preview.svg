@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="LakeHouse Studio social preview placeholder">
+  <rect width="1280" height="640" fill="#0A0A0A"/>
+  <circle cx="180" cy="320" r="72" fill="#7DFFFF"/>
+  <rect x="148" y="332" width="64" height="16" fill="#0A0A0A"/>
+  <text x="300" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#F2F2F2">LakeHouse Studio</text>
+  <text x="300" y="370" font-family="ui-sans-serif, system-ui, sans-serif" font-size="32" fill="#7DFFFF">AEC open-source · Revit · Rhino · Grasshopper · BIM</text>
+  <text x="300" y="520" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" fill="#9A9A9A">1280×640 placeholder  Sen replaces with final brand art</text>
+</svg>

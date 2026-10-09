@@ -1,0 +1,45 @@
+/*
+  LakeHouse Studio — dark mode only.
+  Accent token (swappable with brand guide): --lh-accent
+*/
+:root,
+:root[data-theme="light"],
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --lh-accent: #7dffff;
+  --lh-bg: #0a0a0a;
+  --lh-fg: #f2f2f2;
+  --sl-color-accent: var(--lh-accent);
+  --sl-color-accent-high: #b8ffff;
+  --sl-color-accent-low: #0b3d3d;
+  --sl-color-text-accent: var(--lh-accent);
+  --sl-color-bg: var(--lh-bg);
+  --sl-color-bg-nav: #111111;
+  --sl-color-bg-sidebar: #0e0e0e;
+  --sl-color-text: var(--lh-fg);
+  --sl-color-white: var(--lh-fg);
+  --sl-color-gray-1: #e8e8e8;
+  --sl-color-gray-2: #c8c8c8;
+  --sl-color-gray-3: #9a9a9a;
+  --sl-color-gray-4: #5a5a5a;
+  --sl-color-gray-5: #2a2a2a;
+  --sl-color-gray-6: #161616;
+  --sl-color-black: #000000;
+}
+
+/* Hide theme toggle — dark only */
+starlight-theme-select,
+.social-icons + starlight-theme-select,
+[data-theme-picker],
+label[class*="theme"] {
+  display: none !important;
+}
+
+html {
+  background: var(--lh-bg);
+  color: var(--lh-fg);
+}
+
+a {
+  text-underline-offset: 0.15em;
+}

@@ -109,6 +109,7 @@ function generators(org, remote) {
       "- [About](#about)",
       "- [Quick start](#quick-start)",
       "- [Releasing](#releasing)",
+      "- [Discoverability](#discoverability)",
       "- [Agent rules](#agent-rules)",
       "- [Contributing](#contributing)",
       "- [Security](#security)",

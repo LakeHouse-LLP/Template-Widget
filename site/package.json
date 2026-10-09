@@ -1,0 +1,20 @@
+{
+  "name": "@lakehouse/template-docs-site",
+  "type": "module",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lhci": "npm run build && npx --yes @lhci/cli@0.14.0 autorun --config=./lighthouserc.json"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/starlight": "^0.42.6",
+    "astro": "^7.2.10",
+    "sharp": "^0.35.3"
+  }
+}

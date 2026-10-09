@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/discoverability.schema.json",
+  "title": "LakeHouse Studio discoverability",
+  "type": "object",
+  "required": ["description", "topics", "readme", "docsSite", "analytics"],
+  "properties": {
+    "brandStudio": { "type": "string" },
+    "accentToken": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "description": {
+      "type": "object",
+      "required": ["expected", "minLength", "maxLength"],
+      "properties": {
+        "expected": { "type": "string" },
+        "minLength": { "type": "integer", "minimum": 1 },
+        "maxLength": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "topics": {
+      "type": "object",
+      "required": ["min", "max", "expected"],
+      "properties": {
+        "min": { "type": "integer", "minimum": 8, "maximum": 20 },
+        "max": { "type": "integer", "minimum": 8, "maximum": 20 },
+        "expected": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 20,
+          "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,49}$" }
+        }
+      }
+    },
+    "readme": { "type": "object" },
+    "homepage": { "type": "object" },
+    "socialPreview": { "type": "string" },
+    "docsSite": { "type": "object" },
+    "analytics": { "type": "object" }
+  }
+}

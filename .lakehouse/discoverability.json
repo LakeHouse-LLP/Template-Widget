@@ -1,0 +1,57 @@
+{
+  "$schema": "./discoverability.schema.json",
+  "brandStudio": "LakeHouse Studio",
+  "accentToken": "#7DFFFF",
+  "description": {
+    "expected": "LakeHouse Studio public template for AEC open-source tools — Revit, Rhino, Grasshopper, BIM, and design automation starters with OpenSSF-aligned CI (tier: public).",
+    "minLength": 80,
+    "maxLength": 350
+  },
+  "topics": {
+    "min": 8,
+    "max": 20,
+    "expected": [
+      "aec",
+      "architecture",
+      "bim",
+      "design-tools",
+      "grasshopper",
+      "indesign",
+      "nodejs",
+      "opensource",
+      "revit",
+      "rhino",
+      "starlight",
+      "template",
+      "tier-public",
+      "typescript"
+    ]
+  },
+  "readme": {
+    "minFirstParagraphWords": 45,
+    "requiredKeywords": [
+      "LakeHouse",
+      "Revit",
+      "Rhino",
+      "Grasshopper",
+      "BIM",
+      "open-source",
+      "AEC"
+    ]
+  },
+  "homepage": {
+    "fromOrgJsonDomain": true,
+    "neverGithubIo": true
+  },
+  "socialPreview": "docs/media/social-preview.svg",
+  "docsSite": {
+    "path": "site",
+    "stack": "astro-starlight",
+    "theme": "dark-only",
+    "justification": "Ship a per-repo Starlight scaffold as the flagship seed for one org docs hub on the custom domain (when Sen sets REPLACE_WITH_CUSTOM_DOMAIN). Matches the monorepo Astro choice; avoids *.github.io as the public hostname by using the org.json domain for canonical/OG URLs once set. Other repos can deep-link into the hub later."
+  },
+  "analytics": {
+    "choice": "goatcounter",
+    "justification": "GoatCounter is free for non-commercial/open-source, privacy-friendly (no cookie banner required in typical setups), zero-cost to self-host or use the free hosted tier, and does not require a business Cloudflare plan. Wire the script only after Sen creates a site — never enable tracking until verification is ready."
+  }
+}

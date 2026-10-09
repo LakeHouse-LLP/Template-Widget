@@ -1,0 +1,6 @@
+# LakeHouse Studio docs — adjust Sitemap host after domain is set in .lakehouse/org.json
+User-agent: *
+Allow: /
+
+# Sitemap URL is emitted at /sitemap-index.xml when Astro `site` is configured.
+# Sitemap: https://REPLACE_WITH_CUSTOM_DOMAIN/sitemap-index.xml

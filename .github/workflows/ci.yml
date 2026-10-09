@@ -65,6 +65,13 @@ jobs:
       - name: Release files present
         run: npm run release:validate
 
+      - name: Discoverability (README + GitHub description/topics)
+        run: npm run check:discoverability
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Strict on main only — PRs warn until Sen applies description/topics in the UI.
+          DISCOVERABILITY_STRICT: ${{ github.ref == 'refs/heads/main' }}
+
       - name: Changelog policy
         if: github.event_name == 'pull_request'
         run: npm run check:changelog -- --strict

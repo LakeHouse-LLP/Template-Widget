@@ -53,11 +53,18 @@ keywords:
   - open-source
   - ${yamlEscape(org.brand.toLowerCase())}
   - ${yamlEscape(org.packageScope)}
+  - aec
+  - bim
+  - revit
+  - rhino
+  - grasshopper
+  - architecture
 abstract: >-
-  Public GitHub template for ${org.brand} open-source projects. Provides
-  OpenSSF-aligned defaults, README generation, changelog policy, secret
-  scanning, and CI guards for zero-cost GitHub Free usage. Org identity lives
-  in .lakehouse/org.json (brand-stable packageScope + custom domain${
+  LakeHouse Studio public GitHub template for AEC open-source projects (Revit,
+  Rhino, Grasshopper, BIM, design tools). Provides OpenSSF-aligned defaults,
+  README generation, changelog policy, secret scanning, Starlight docs SEO, and
+  CI guards for zero-cost GitHub Free usage. Org identity lives in
+  .lakehouse/org.json (brand-stable packageScope + custom domain${
     isDomainPlaceholder(org.domain) ? "; domain placeholder until Sen chooses one" : ""
   }).
 `;

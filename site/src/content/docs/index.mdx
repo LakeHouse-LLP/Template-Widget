@@ -1,0 +1,33 @@
+---
+title: LakeHouse Studio docs
+description: Documentation hub seed for LakeHouse Studio AEC open-source templates — Revit, Rhino, Grasshopper, BIM, and design automation.
+template: splash
+hero:
+  tagline: Dark-mode docs for LakeHouse Studio public templates. Custom domain from org.json — never *.github.io.
+  actions:
+    - text: Discoverability
+      link: /guides/discoverability/
+      icon: right-arrow
+    - text: SEO reference
+      link: /reference/seo/
+      icon: document
+      variant: minimal
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+## Why Starlight here
+
+This per-repo site is the **flagship seed** for one org docs hub on the custom domain (set in `.lakehouse/org.json` when Sen chooses it). It matches the monorepo Astro stack, ships sitemap/robots/OG/JSON-LD, and stays zero-cost on GitHub Pages or Vercel free — without using `*.github.io` as the public hostname.
+
+<CardGrid>
+  <Card title="SEO built-in" icon="rocket">
+    Canonical URLs (when domain is set), Open Graph, Twitter cards, JSON-LD Organization + SoftwareApplication, meta descriptions.
+  </Card>
+  <Card title="Dark only" icon="moon">
+    LakeHouse Studio theme with accent token <code>--lh-accent: #7DFFFF</code> — swappable when the brand guide lands.
+  </Card>
+  <Card title="Discoverability" icon="puzzle">
+    GitHub description/topics standard, README keywords, CITATION.cff, launch checklist.
+  </Card>
+</CardGrid>

@@ -7,9 +7,9 @@
 </picture>
 <!-- /AUTO:header -->
 
-⚠ TEMPLATE — open-source project starter for the **LakeHouse** brand (org identity: [`.lakehouse/org.json`](./.lakehouse/org.json)).
+**LakeHouse Studio** publishes open-source AEC tooling templates so architecture and engineering teams can ship Revit, Rhino, Grasshopper, InDesign, and BIM utilities with OpenSSF-aligned CI, changesets-based releases, Starlight docs SEO, and zero-cost GitHub Free runners — without client data, without `*.github.io` as the public hostname, and with a brand-stable `@lakehouse` package scope for design-tools automation.
 
-Projects created from this template should use a **plain repository name** (no `Template-` prefix).
+⚠ TEMPLATE — starter for the **LakeHouse** brand (org identity: [`.lakehouse/org.json`](./.lakehouse/org.json)). Projects created from this template should use a **plain repository name** (no `Template-` prefix).
 
 <!-- AUTO:badges -->
 [![CI](https://img.shields.io/badge/CI-domain%20pending-lightgrey)](./docs/org.md)
@@ -22,6 +22,7 @@ Projects created from this template should use a **plain repository name** (no `
 - [About](#about)
 - [Quick start](#quick-start)
 - [Releasing](#releasing)
+- [Discoverability](#discoverability)
 - [Agent rules](#agent-rules)
 - [Contributing](#contributing)
 - [Security](#security)
@@ -48,7 +49,7 @@ Projects created from this template should use a **plain repository name** (no `
 | Org runbook | `{owner}/.github` (see [docs/org.md](./docs/org.md)) |
 <!-- /AUTO:repo-meta -->
 
-Minimal public-template defaults: OpenSSF-aligned CI, README autogen, changelog policy, gitleaks, changesets-driven releases, and guards that keep the org on **GitHub Free** with **GitHub-hosted runners only**. See [docs/org.md](./docs/org.md).
+See [docs/discoverability.md](./docs/discoverability.md) for the GitHub description/topics standard and [site/](./site/) for the Starlight docs scaffold (dark mode, accent `#7DFFFF`).
 
 ## Quick start
 
@@ -58,16 +59,27 @@ npm run hooks:install
 npm run readme:gen
 npm run citation:gen
 npm run check:all
+cd site && npm ci && npm run build
 ```
 
 ## Releasing
 
 Changesets → CI version PR → CI-only `vX.Y.Z` tag → build, checksums, provenance attestations → **draft** GitHub Release → npm OIDC trusted publishing.
 
-- [docs/releasing.md](./docs/releasing.md)
+Regular releases help GitHub ranking — see [docs/releasing.md](./docs/releasing.md).
+
 - [docs/pre-release-checklist.md](./docs/pre-release-checklist.md)
+- [docs/seo-launch-checklist.md](./docs/seo-launch-checklist.md)
 - [docs/rollback.md](./docs/rollback.md)
 - Media: [docs/media/](./docs/media/)
+
+## Discoverability
+
+- Standard: [docs/discoverability.md](./docs/discoverability.md)
+- Org profile / pins strategy: [docs/org-profile.md](./docs/org-profile.md)
+- Awesome lists: [docs/awesome-lists.md](./docs/awesome-lists.md)
+- Sen SEO verification + GoatCounter: [docs/sen-seo-verification.md](./docs/sen-seo-verification.md)
+- CI: `npm run check:discoverability`
 
 ## Agent rules
 

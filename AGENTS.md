@@ -61,6 +61,10 @@ Hand-written README prose stays short. Generated sections live between:
 
 Public badges and links use the **custom domain** from `org.json` (never `*.github.io`). CI fails when AUTO blocks are stale. A weekly workflow regenerates them, opens a PR if needed, and runs lychee link checks.
 
+## Discoverability
+
+Follow [docs/discoverability.md](./docs/discoverability.md). Do not change GitHub description/topics/homepage (Sen-only). Run `npm run check:discoverability`.
+
 ## Changelog and releases
 
 Every PR must add a **changeset** (`npx changeset`) and/or update `CHANGELOG.md`, **or** carry the `skip-changelog` label.
