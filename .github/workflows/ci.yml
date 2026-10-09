@@ -87,6 +87,9 @@ jobs:
         env:
           LAKEHOUSE_HOST_VERSION: "0.1.0"
 
+      - name: Writing style (no em dashes / banned filler)
+        run: npm run check:copy
+
       - name: Build widget bundle
         run: npm run build
 

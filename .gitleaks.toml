@@ -13,6 +13,11 @@ paths = [
   '''(?:^|/)\.gitleaks/''',
   '''(?:^|/)CHANGELOG\.md$''',
 ]
+# Historical false positive: AGENTS.md writing-style line used the deny token once;
+# fixed in the following commit (tip has no match). Do not force-push stack history.
+commits = [
+  '''d10bd73a49a487b446139e2ee8fd516c85333547''',
+]
 
 [[rules]]
 id = "lh-client-ennead"

@@ -3,6 +3,6 @@
   "name": "LakeHouse Studio",
   "contractVersion": "0.1.0",
   "colorScheme": "dark",
-  "description": "Brand default theme — dark neutral base with a single accent. Marketing surfaces stay dark-only; user skins may diverge.",
-  "note": "Runtime copy lives in themes.js for the browser stub; keep in sync until the real package compiles DTCG JSON."
+  "description": "Brand default theme (kit v0.3): graphite ramp #161616-#383838, accent #7DFFFF, Geist / Geist Mono. Marketing surfaces stay dark-only; user skins may diverge.",
+  "note": "Runtime copy lives in themes.js for the browser stub; keep in sync until the real package compiles DTCG JSON. Canonical kit: {owner}/.github/brand."
 }
