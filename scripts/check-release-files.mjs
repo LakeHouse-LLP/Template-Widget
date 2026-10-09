@@ -27,6 +27,8 @@ const required = [
   "src/core/mount.ts",
   "apps/site/index.html",
   "overlays/example.user.json",
+  "docs/deploy/vercel.md",
+  "docs/deploy/env-vars.md",
   "NOTICE",
 ];
 

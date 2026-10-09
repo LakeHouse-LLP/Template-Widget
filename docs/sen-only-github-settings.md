@@ -18,6 +18,7 @@ Agents and contributors must not change these via API, UI, or automation unless 
 - [ ] Seed **3–5** `good first issue` / `help wanted` issues ([starter-issues.md](./starter-issues.md))
 - [ ] Optional: Hacktoberfest topic (opt-in per year — [contributor-listings.md](./contributor-listings.md))
 - [ ] SEO verification / analytics steps ([sen-seo-verification.md](./sen-seo-verification.md))
+- [ ] Vercel project + team **Shared Environment Variables** links ([deploy/vercel.md](./deploy/vercel.md)); agents must not mutate env vars without explicit approval
 
 ## Also Sen-only
 
@@ -26,5 +27,6 @@ Agents and contributors must not change these via API, UI, or automation unless 
 - Approving merges into `Template-*` and `.github`
 - Publishing draft GitHub Releases
 - Uploading final **brand** assets
+- Vercel env var create/edit/delete (shared or project) unless an agent is given explicit in-band approval
 
 See [AGENTS.md](../AGENTS.md) **Never do** list.

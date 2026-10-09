@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Contributor growth: friendly CONTRIBUTING + Codespaces `.devcontainer`, ROADMAP/SUPPORT/GOVERNANCE (no stale bot), starter-issue and listings guides, maintainer playbook, all-contributors README block, and SHA-pinned `welcome` workflow (`actions/first-interaction`).
 - Template-Widget rework: `widget.json` + schema, hello-world core/entries, mock host `preview/`, contract tests, placeholder `@lakehouse/widget-sdk` stub, release assets for loadable bundle; retired name Template-OpenSource.
 - Three-mode dynamic UI/UX: shared `src/core`, host entry, thin `apps/site` shell, declared customization points (theme/slots/flags/toolbar/hooks), overlays preferred over forking; PDF markup example in docs.
+- Vercel env-var rule for standalone site deploy (`docs/deploy/`), linking org `{owner}/.github` canonical doc; AGENTS.md forbids unapproved `vercel env` mutations.
 
 ### Fixed
 
