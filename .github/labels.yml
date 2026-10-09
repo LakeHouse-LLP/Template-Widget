@@ -35,3 +35,9 @@
 - name: automated
   color: "0e8a16"
   description: Opened by automation (readme regen, etc.)
+- name: breaking
+  color: "b60205"
+  description: Breaking change (call out migration in changeset / release notes)
+- name: release
+  color: "5319e7"
+  description: Release process / versioning

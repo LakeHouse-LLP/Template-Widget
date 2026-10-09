@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" role="img" aria-label="LakeHouse">
+  <rect width="640" height="160" fill="#F7F4EF"/>
+  <circle cx="72" cy="80" r="36" fill="#0B6E4F"/>
+  <path d="M56 88h32v8H56z" fill="#F7F4EF"/>
+  <text x="128" y="94" font-family="Georgia, 'Times New Roman', serif" font-size="48" fill="#1A1A1A">LakeHouse</text>
+</svg>

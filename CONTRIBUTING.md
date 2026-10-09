@@ -23,7 +23,7 @@ npm run check:remote
 
 ## Changelog
 
-Update `CHANGELOG.md` under `[Unreleased]` in the same PR, unless a maintainer applies the `skip-changelog` label.
+Add a changeset (`npx changeset`) so CI can version and update `CHANGELOG.md`, unless a maintainer applies the `skip-changelog` label. See [docs/releasing.md](./docs/releasing.md).
 
 ## Stacked PRs (short guide)
 

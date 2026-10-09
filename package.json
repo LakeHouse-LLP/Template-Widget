@@ -1,11 +1,25 @@
 {
   "name": "@lakehouse/template-opensource",
   "version": "0.0.0",
-  "private": true,
   "description": "Public open-source project template (LakeHouse brand; see .lakehouse/org.json)",
   "type": "module",
   "engines": {
     "node": ">=20"
+  },
+  "files": [
+    ".lakehouse",
+    "docs",
+    "scripts",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "CITATION.cff",
+    "AGENTS.md",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "readme:gen": "node scripts/readme-gen.mjs",
@@ -13,6 +27,12 @@
     "citation:gen": "node scripts/citation-gen.mjs",
     "citation:check": "node scripts/citation-gen.mjs --check",
     "hooks:install": "node scripts/install-hooks.mjs",
+    "changeset": "changeset",
+    "changeset:version": "changeset version && npm install --package-lock-only",
+    "changeset:tag": "node scripts/release-tag.mjs",
+    "release:build": "node scripts/release-build.mjs",
+    "release:notes": "node scripts/release-notes.mjs",
+    "release:validate": "node scripts/check-release-files.mjs",
     "check:remote": "node scripts/check-wrong-remote.mjs",
     "check:tier": "node scripts/check-tier.mjs",
     "check:runners": "node scripts/check-no-self-hosted.mjs",
@@ -22,7 +42,12 @@
     "check:changelog": "node scripts/check-changelog.mjs",
     "check:dco": "node scripts/check-dco.mjs",
     "check:gitleaks": "node scripts/run-gitleaks.mjs",
-    "check:all": "npm run check:org && npm run check:remote && npm run check:tier && npm run check:runners && npm run check:org-slug && npm run check:pins && npm run readme:check && npm run citation:check && npm run check:gitleaks"
+    "check:all": "npm run check:org && npm run check:remote && npm run check:tier && npm run check:runners && npm run check:org-slug && npm run check:pins && npm run readme:check && npm run citation:check && npm run release:validate && npm run check:gitleaks"
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.5",
+    "@changesets/get-github-info": "^0.6.0"
+  }
 }

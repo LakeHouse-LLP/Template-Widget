@@ -62,6 +62,9 @@ jobs:
       - name: Action pins match .lakehouse/pins.json
         run: npm run check:pins
 
+      - name: Release files present
+        run: npm run release:validate
+
       - name: Changelog policy
         if: github.event_name == 'pull_request'
         run: npm run check:changelog -- --strict

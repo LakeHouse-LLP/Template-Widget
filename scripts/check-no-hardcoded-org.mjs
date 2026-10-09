@@ -16,6 +16,7 @@ const SKIP_DIRS = new Set([
   "dist",
   "build",
   ".npm",
+  "release-assets",
 ]);
 
 function isAllowlisted(relPosix) {

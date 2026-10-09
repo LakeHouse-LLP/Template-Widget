@@ -27,3 +27,7 @@ Do not hardcode the GitHub org slug in workflows, docs, or badges. `npm run chec
 1. Update `orgName` in `.lakehouse/org.json` (brand / packageScope stay put; set `domain` when purchased).
 2. Re-run `npm run readme:gen` and `npm run citation:gen`.
 3. Confirm CI still resolves owner via `github.repository_owner`.
+
+## Brand assets
+
+Org-wide `brand/` (logo masters, palette, social placeholders) lives in the organization `.github` repository. Per-repo media convention: [media/](./media/).

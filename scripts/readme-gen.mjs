@@ -55,23 +55,20 @@ function generators(org, remote) {
   const lic = licenseStatus();
   const t = tier();
   const domainPending = isDomainPlaceholder(org.domain);
+  const brandAlt = org.brand.replace(/"/g, "");
 
   const badges = domainPending
     ? [
         `[![CI](https://img.shields.io/badge/CI-domain%20pending-lightgrey)](./docs/org.md)`,
+        `[![Release](https://img.shields.io/badge/release-domain%20pending-lightgrey)](./docs/org.md)`,
+        `[![License](https://img.shields.io/badge/license-${lic.badgeLabel}-lightgrey)](./LICENSE)`,
         `[![OpenSSF Scorecard](https://img.shields.io/badge/Scorecard-domain%20pending-lightgrey)](./docs/org.md)`,
-        `[![CodeQL](https://img.shields.io/badge/CodeQL-domain%20pending-lightgrey)](./docs/org.md)`,
-        `[![tier](https://img.shields.io/badge/tier-${encodeURIComponent(t)}-0B6E4F)](./.lakehouse/tier)`,
-        `[![license](https://img.shields.io/badge/license-${lic.badgeLabel}-lightgrey)](./LICENSE)`,
-        `[![npm scope](https://img.shields.io/badge/scope-${encodeURIComponent(org.packageScope)}-cb3837)](./.lakehouse/org.json)`,
       ]
     : [
         `[![CI](${base}/badges/ci.svg)](${base}/ci)`,
+        `[![Release](${base}/badges/release.svg)](${base}/releases)`,
+        `[![License](https://img.shields.io/badge/license-${lic.badgeLabel}-lightgrey)](./LICENSE)`,
         `[![OpenSSF Scorecard](${base}/badges/scorecard.svg)](${base}/scorecard)`,
-        `[![CodeQL](${base}/badges/codeql.svg)](${base}/codeql)`,
-        `[![tier](https://img.shields.io/badge/tier-${encodeURIComponent(t)}-0B6E4F)](./.lakehouse/tier)`,
-        `[![license](https://img.shields.io/badge/license-${lic.badgeLabel}-lightgrey)](./LICENSE)`,
-        `[![npm scope](https://img.shields.io/badge/scope-${encodeURIComponent(org.packageScope)}-cb3837)](./.lakehouse/org.json)`,
       ];
 
   const domainRow = domainPending
@@ -79,6 +76,13 @@ function generators(org, remote) {
     : `| Public domain | [\`${org.domain}\`](${base}/) |`;
 
   return {
+    header: [
+      `<picture>`,
+      `  <source media="(prefers-color-scheme: dark)" srcset="docs/media/logo-dark.svg" />`,
+      `  <img src="docs/media/logo-light.svg" alt="${brandAlt}" width="320" height="80" />`,
+      `</picture>`,
+    ].join("\n"),
+
     badges: badges.join("\n"),
 
     "repo-meta": [
@@ -94,6 +98,7 @@ function generators(org, remote) {
       `| Code owner | [@zsenarchitect](https://github.com/zsenarchitect) |`,
       `| Runners | GitHub-hosted only |`,
       `| Merge style | Merge commits only |`,
+      `| Releases | changesets → CI \`vX.Y.Z\` tag → draft GH release + npm OIDC |`,
       `| Action pins | [\`.lakehouse/pins.json\`](./.lakehouse/pins.json) |`,
       `| Org runbook | \`{owner}/.github\` (see [docs/org.md](./docs/org.md)) |`,
     ].join("\n"),
@@ -103,6 +108,7 @@ function generators(org, remote) {
     toc: [
       "- [About](#about)",
       "- [Quick start](#quick-start)",
+      "- [Releasing](#releasing)",
       "- [Agent rules](#agent-rules)",
       "- [Contributing](#contributing)",
       "- [Security](#security)",

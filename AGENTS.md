@@ -61,9 +61,11 @@ Hand-written README prose stays short. Generated sections live between:
 
 Public badges and links use the **custom domain** from `org.json` (never `*.github.io`). CI fails when AUTO blocks are stale. A weekly workflow regenerates them, opens a PR if needed, and runs lychee link checks.
 
-## Changelog
+## Changelog and releases
 
-Every PR must update `CHANGELOG.md` (Keep a Changelog, `[Unreleased]`) **or** carry the `skip-changelog` label.
+Every PR must add a **changeset** (`npx changeset`) and/or update `CHANGELOG.md`, **or** carry the `skip-changelog` label.
+
+Release tags (`vX.Y.Z`) are created **only by CI**. Never tag or publish by hand. See [docs/releasing.md](./docs/releasing.md) and [docs/rollback.md](./docs/rollback.md).
 
 ## Secrets and client data
 
