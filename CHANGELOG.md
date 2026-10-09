@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+### Changed
+
+- Brand kit v0.3: README `<picture>` header (`docs/media/readme-header.*`), standalone site favicons, LakeHouse Studio default theme tokens (graphite ramp, accent, Geist / Geist Mono).
+- Writing-style rules in AGENTS.md / CONTRIBUTING.md; CI `check:copy` (no em/en dashes, banned filler).
+
 ### Added
 
 - Initial LakeHouse-LLP public open-source template scaffold (CI, OpenSSF Scorecard, CodeQL, DCO, gitleaks, README autogen, tier and runner guards).

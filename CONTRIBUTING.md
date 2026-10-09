@@ -1,15 +1,15 @@
 # Contributing to LakeHouse Studio
 
-Thanks for stopping by — we are glad you are here. This guide gets you productive in about **five minutes** on **Mac or Windows**. Sen reviews and merges; please open a **draft PR** and do not merge into `Template-*` or the org `.github` repository yourself.
+Thanks for stopping by. We are glad you are here. This guide gets you productive in about **five minutes** on **Mac or Windows**. Sen reviews and merges; please open a **draft PR** and do not merge into `Template-*` or the org `.github` repository yourself.
 
 House rules (agents and humans): [AGENTS.md](./AGENTS.md). Code of conduct: [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md). Governance and response times: [GOVERNANCE.md](./GOVERNANCE.md).
 
-Identity / domain: [`.lakehouse/org.json`](./.lakehouse/org.json). This repo is **Template-Widget** (a LakeHouse widget template). Retired name: Template-OpenSource — [docs/retired-names.md](./docs/retired-names.md).
+Identity / domain: [`.lakehouse/org.json`](./.lakehouse/org.json). This repo is **Template-Widget** (a LakeHouse widget template). Retired name: Template-OpenSource. See [docs/retired-names.md](./docs/retired-names.md).
 
 ## Find something to work on
 
 1. Browse issues labeled **`good first issue`** or **`help wanted`** (see [docs/starter-issues.md](./docs/starter-issues.md)).
-2. Say hi in **Discussions** (Ideas / Q&A / Show and tell — Sen enables categories).
+2. Say hi in **Discussions** (Ideas / Q&A / Show and tell; Sen enables categories).
 3. Skim [ROADMAP.md](./ROADMAP.md) so your idea fits the direction.
 
 ## 5-minute setup (Mac & Windows)
@@ -34,7 +34,7 @@ git checkout -b fix/my-change
 
 ### Codespaces / Dev Container
 
-Open the repo in **GitHub Codespaces** or VS Code Dev Containers — the checked-in [`.devcontainer/devcontainer.json`](./.devcontainer/devcontainer.json) provides Node 22 and the GitHub CLI. First boot may take a few minutes; then run `npm run check:all`.
+Open the repo in **GitHub Codespaces** or VS Code Dev Containers. The checked-in [`.devcontainer/devcontainer.json`](./.devcontainer/devcontainer.json) provides Node 22 and the GitHub CLI. First boot may take a few minutes; then run `npm run check:all`.
 
 ### DCO (public repos)
 
@@ -44,25 +44,36 @@ Sign off commits:
 git commit -s -m "Describe your change"
 ```
 
+## Writing style
+
+LakeHouse copy follows `{owner}/.github/brand/WRITING-STYLE.md`. Short rules for PRs and docs:
+
+- Write like a thoughtful architect explaining something to a colleague. Warm, plain, confident. Never hype.
+- **No em dashes or en dashes.** Ranges use a hyphen (`2-4`). Prefer periods and commas.
+- Avoid banned words (elevate, seamless, unleash, leverage, delve, tapestry, game-changer, next-level, robust, "AI-powered" as a headline, and the rest of WRITING-STYLE §7).
+- Use **LakeHouse** / **LakeHouse Studio** casing. Never "Lakehouse" or "Lake House".
+- No emoji in docs or UI. Sentence case for headings and buttons.
+- CI enforces a cheap check on key files: `npm run check:copy`.
+
 ## Pull requests (short path)
 
 1. Keep the PR small; prefer [stacked PRs](./docs/stacked-prs.md) for larger work.
 2. Fill the PR template (summary, stack, tests, checklist).
 3. Touch `CHANGELOG.md` / `.changeset/` **or** add the `skip-changelog` label.
-4. Wait for CI (GitHub-hosted on public repos). Maintainers will not run untrusted fork code on self-hosted runners — see [docs/maintainer-playbook.md](./docs/maintainer-playbook.md).
+4. Wait for CI (GitHub-hosted on public repos). Maintainers will not run untrusted fork code on self-hosted runners. See [docs/maintainer-playbook.md](./docs/maintainer-playbook.md).
 5. Sen merges with a **merge commit** only (never squash/rebase-merge). On **public** repos, Sen uses the **GitHub merge queue** on `main` ([docs/merge-queue.md](./docs/merge-queue.md)). Contributors and agents do **not** enqueue or merge.
 
 ## Org constraints (summary)
 
-- **ZERO COST** — GitHub Free only.
-- **Runners** — Public: GitHub-hosted only. Never self-hosted on public. Merge-queue (`merge_group`) checks also use GitHub-hosted runners.
-- **Merge queue** — Required on public `main` (Free plan allows it). Private templates stay manual bottom-up merge commits — see [docs/merge-queue.md](./docs/merge-queue.md).
-- **Identity** — Do not hardcode the GitHub org login; use `org.json` or `${{ github.repository_owner }}`.
+- **ZERO COST**: GitHub Free only.
+- **Runners**: Public: GitHub-hosted only. Never self-hosted on public. Merge-queue (`merge_group`) checks also use GitHub-hosted runners.
+- **Merge queue**: Required on public `main` (Free plan allows it). Private templates stay manual bottom-up merge commits. See [docs/merge-queue.md](./docs/merge-queue.md).
+- **Identity**: Do not hardcode the GitHub org login; use `org.json` or `${{ github.repository_owner }}`.
 - Prefer org reusable workflows/docs in `{owner}/.github` when published; local copies carry a `TODO` until then.
 
 ## Changelog & releases
 
-Keep a Changelog + changesets — [docs/releasing.md](./docs/releasing.md).
+Keep a Changelog + changesets. See [docs/releasing.md](./docs/releasing.md).
 
 ## Recognition
 

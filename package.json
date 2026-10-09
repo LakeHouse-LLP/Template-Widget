@@ -47,6 +47,7 @@
     "check:widget": "node scripts/check-widget.mjs",
     "check:hardcoded-values": "node scripts/check-hardcoded-values.mjs",
     "check:design-contract": "node scripts/check-design-contract.mjs",
+    "check:copy": "node scripts/check-copy.mjs",
     "site:build": "npm ci --prefix site && npm run build --prefix site",
     "check:remote": "node scripts/check-wrong-remote.mjs",
     "check:tier": "node scripts/check-tier.mjs",
@@ -58,7 +59,7 @@
     "check:changelog": "node scripts/check-changelog.mjs",
     "check:dco": "node scripts/check-dco.mjs",
     "check:gitleaks": "node scripts/run-gitleaks.mjs",
-    "check:all": "npm run check:org && npm run check:remote && npm run check:tier && npm run check:runners && npm run check:merge-group && npm run check:org-slug && npm run check:pins && npm run readme:check && npm run citation:check && npm run release:validate && npm run check:discoverability && npm run check:widget && npm run check:design-contract && npm run check:hardcoded-values && npm run build && npm test && npm run check:gitleaks"
+    "check:all": "npm run check:org && npm run check:remote && npm run check:tier && npm run check:runners && npm run check:merge-group && npm run check:org-slug && npm run check:pins && npm run readme:check && npm run citation:check && npm run release:validate && npm run check:discoverability && npm run check:widget && npm run check:design-contract && npm run check:hardcoded-values && npm run check:copy && npm run build && npm test && npm run check:gitleaks"
   },
   "license": "UNLICENSED",
   "dependencies": {

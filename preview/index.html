@@ -4,6 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LakeHouse Widget Preview (mock host)</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/style.min.css"
+    />
     <style>
       :root {
         font-family: var(--font-family-ui);
@@ -83,7 +92,7 @@
       }
       #log {
         white-space: pre-wrap;
-        font-family: var(--font-family-ui);
+        font-family: var(--font-family-mono);
         font-size: var(--font-size-caption);
         max-height: var(--size-preview-log-max);
         overflow: auto;
@@ -100,7 +109,7 @@
       <div>
         <h1>Mock LakeHouse host</h1>
         <p>
-          Local preview harness — iframe sandbox + postMessage bridge. Switch skins via the design contract.
+          Local preview harness: iframe sandbox + postMessage bridge. Switch skins via the design contract.
         </p>
       </div>
       <label>

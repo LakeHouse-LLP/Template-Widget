@@ -2,14 +2,14 @@
 
 <!-- AUTO:header -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/media/logo-dark.svg" />
-  <img src="docs/media/logo-light.svg" alt="LakeHouse" width="320" height="80" />
+  <source type="image/svg+xml" srcset="docs/media/readme-header.svg" />
+  <img src="docs/media/readme-header.png" alt="LakeHouse Studio" width="1280" height="320" />
 </picture>
 <!-- /AUTO:header -->
 
-**LakeHouse Studio** ships standalone, agent-friendly widgets so designers and agents can fork a public widget, customize it, and load it into a LakeHouse office — with OpenSSF-aligned CI, changesets releases, Starlight docs SEO, dark-only UI (accent `#7DFFFF`), and zero-cost GitHub Free runners for AEC and design-tools workflows (Revit, Rhino, Grasshopper, BIM) without client data or `*.github.io` as the public hostname.
+**LakeHouse Studio** ships standalone, agent-friendly widgets so designers and agents can fork a public widget, customize it, and load it into a LakeHouse office. Stack includes OpenSSF-aligned CI, changesets releases, Starlight docs SEO, dark-only UI (accent `#7DFFFF`), and zero-cost GitHub Free runners for AEC and design-tools workflows (Revit, Rhino, Grasshopper, BIM) without client data or `*.github.io` as the public hostname.
 
-⚠ TEMPLATE — **Template-Widget** (formerly Template-OpenSource; see [docs/retired-names.md](./docs/retired-names.md)). Org identity: [`.lakehouse/org.json`](./.lakehouse/org.json). Derived repos use a **plain** name (no `Template-` prefix).
+⚠ TEMPLATE: **Template-Widget** (formerly Template-OpenSource; see [docs/retired-names.md](./docs/retired-names.md)). Org identity: [`.lakehouse/org.json`](./.lakehouse/org.json). Derived repos use a **plain** name (no `Template-` prefix).
 
 <!-- AUTO:badges -->
 [![CI](https://img.shields.io/badge/CI-domain%20pending-lightgrey)](./docs/org.md)
@@ -37,7 +37,7 @@
 | --- | --- |
 | Brand | `LakeHouse` |
 | Package scope | `@lakehouse` |
-| Public domain | `REPLACE_WITH_CUSTOM_DOMAIN` (set a real custom domain in org.json — never assume a hostname; never `*.github.io`) |
+| Public domain | `REPLACE_WITH_CUSTOM_DOMAIN` (set a real custom domain in org.json; never assume a hostname; never `*.github.io`) |
 | GitHub owner | runtime: `github.repository_owner` or `.lakehouse/org.json` `orgName` |
 | Repository | `Template-Widget` |
 | Tier | `public` |
@@ -50,7 +50,7 @@
 | Org runbook | `{owner}/.github` (see [docs/org.md](./docs/org.md)) |
 <!-- /AUTO:repo-meta -->
 
-This repo **is a widget** with **three modes** from one codebase: public site (`apps/site`), LakeHouse host entry (`dist/widget.js`), and agent reference for per-user overlays ([docs/dynamic-ui.md](./docs/dynamic-ui.md)). Core lives in [`src/core/`](./src/core/); customization points in [`widget.json`](./widget.json). SDK: `@lakehouse/widget-sdk` (monorepo) — until published, use [`stubs/widget-sdk/`](./stubs/widget-sdk/) (do not vendor the real SDK).
+This repo **is a widget** with **three modes** from one codebase: public site (`apps/site`), LakeHouse host entry (`dist/widget.js`), and agent reference for per-user overlays ([docs/dynamic-ui.md](./docs/dynamic-ui.md)). Core lives in [`src/core/`](./src/core/); customization points in [`widget.json`](./widget.json). SDK: `@lakehouse/widget-sdk` (monorepo): until published, use [`stubs/widget-sdk/`](./stubs/widget-sdk/) (do not vendor the real SDK).
 
 ## Quick start
 

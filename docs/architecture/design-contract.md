@@ -28,7 +28,7 @@ flowchart TB
 
 ## Default theme vs skins
 
-- **LakeHouse Studio** (default): dark base `#1E1E1E`, accent `#7DFFFF`. Brand/marketing stays dark-only.
+- **LakeHouse Studio** (default skin only): brand kit v0.3 graphite ramp (`#161616` sunken through `#383838` overlay), canvas `#1E1E1E`, accent `#7DFFFF`, **Geist** + **Geist Mono**. Brand/marketing stays dark-only. Canonical kit: `{owner}/.github/brand/`.
 - **Lake Morning** (example skin): light pack proving a full reskin with **no rebuild**.
 - User skins may be anything (including light). Agents generate skins the same way as widget overlays.
 
