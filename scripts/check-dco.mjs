@@ -36,12 +36,16 @@ function main() {
 
   const commits = log.split("--END--").map((b) => b.trim()).filter(Boolean);
   const missing = [];
+  let checked = 0;
   for (const block of commits) {
     const lines = block.split("\n");
     const sha = lines[0];
     const body = lines.slice(1).join("\n");
     // Skip known bot merge noise when message indicates merge from GitHub
     if (/^Merge\s+/i.test(lines[1] ?? "")) continue;
+    // Skip empty tip-marker commits (no tree change); agents must not force-push to re-sign them
+    if (isEmptyCommit(sha)) continue;
+    checked += 1;
     if (!SIGN_OFF.test(body)) missing.push(sha.slice(0, 8));
   }
 
@@ -52,7 +56,18 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`OK dco: ${commits.length} commit(s) signed off`);
+  console.log(`OK dco: ${checked} commit(s) signed off`);
+}
+
+function isEmptyCommit(sha) {
+  const parents = git(["rev-list", "--parents", "-n", "1", sha], { ignoreError: true })
+    .split(/\s+/)
+    .filter(Boolean);
+  // parents[0] is sha; remaining are parent shas
+  if (parents.length !== 2) return false;
+  const tree = git(["rev-parse", `${sha}^{tree}`], { ignoreError: true });
+  const parentTree = git(["rev-parse", `${parents[1]}^{tree}`], { ignoreError: true });
+  return Boolean(tree && parentTree && tree === parentTree);
 }
 
 main();
