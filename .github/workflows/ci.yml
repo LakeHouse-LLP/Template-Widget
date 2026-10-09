@@ -1,3 +1,4 @@
+# Action SHAs and org reusable-workflow catalog: .lakehouse/pins.json
 name: ci
 
 on:
@@ -48,6 +49,18 @@ jobs:
 
       - name: README AUTO freshness
         run: npm run readme:check
+
+      - name: CITATION.cff freshness
+        run: npm run citation:check
+
+      - name: Org identity invariants
+        run: npm run check:org
+
+      - name: No hardcoded org slug
+        run: npm run check:org-slug
+
+      - name: Action pins match .lakehouse/pins.json
+        run: npm run check:pins
 
       - name: Changelog policy
         if: github.event_name == 'pull_request'

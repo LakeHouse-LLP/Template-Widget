@@ -1,4 +1,4 @@
-title = "LakeHouse-LLP public template gitleaks"
+title = "LakeHouse public template gitleaks"
 
 # Free CLI config. CI and pre-commit both use this file.
 # Path allowlists keep the deny-list definitions themselves from matching.

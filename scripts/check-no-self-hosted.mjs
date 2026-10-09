@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Fail if any GitHub Actions workflow uses runs-on: self-hosted.
- * Public LakeHouse-LLP repos must use GitHub-hosted runners only.
+ * Public repos must use GitHub-hosted runners only.
  */
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";

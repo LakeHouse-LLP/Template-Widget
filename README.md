@@ -1,15 +1,16 @@
 # Template-OpenSource
 
-⚠ TEMPLATE — open-source project starter for [LakeHouse-LLP](https://github.com/LakeHouse-LLP).
+⚠ TEMPLATE — open-source project starter for the **LakeHouse** brand (org identity: [`.lakehouse/org.json`](./.lakehouse/org.json)).
 
 Projects created from this template should use a **plain repository name** (no `Template-` prefix).
 
 <!-- AUTO:badges -->
-[![CI](https://github.com/LakeHouse-LLP/Template-OpenSource/actions/workflows/ci.yml/badge.svg)](https://github.com/LakeHouse-LLP/Template-OpenSource/actions/workflows/ci.yml)
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/LakeHouse-LLP/Template-OpenSource/badge)](https://scorecard.dev/viewer/?uri=github.com/LakeHouse-LLP/Template-OpenSource)
-[![CodeQL](https://github.com/LakeHouse-LLP/Template-OpenSource/actions/workflows/codeql.yml/badge.svg)](https://github.com/LakeHouse-LLP/Template-OpenSource/actions/workflows/codeql.yml)
+[![CI](https://img.shields.io/badge/CI-domain%20pending-lightgrey)](./docs/org.md)
+[![OpenSSF Scorecard](https://img.shields.io/badge/Scorecard-domain%20pending-lightgrey)](./docs/org.md)
+[![CodeQL](https://img.shields.io/badge/CodeQL-domain%20pending-lightgrey)](./docs/org.md)
 [![tier](https://img.shields.io/badge/tier-public-0B6E4F)](./.lakehouse/tier)
 [![license](https://img.shields.io/badge/license-license%20pending-lightgrey)](./LICENSE)
+[![npm scope](https://img.shields.io/badge/scope-%40lakehouse-cb3837)](./.lakehouse/org.json)
 <!-- /AUTO:badges -->
 
 <!-- AUTO:toc -->
@@ -26,16 +27,21 @@ Projects created from this template should use a **plain repository name** (no `
 <!-- AUTO:repo-meta -->
 | | |
 | --- | --- |
-| Org | `LakeHouse-LLP` |
-| Repository | `Template-OpenSource` |
+| Brand | `LakeHouse` |
+| Package scope | `@lakehouse` |
+| Public domain | `REPLACE_WITH_CUSTOM_DOMAIN` (set a real custom domain in org.json — never assume a hostname; never `*.github.io`) |
+| GitHub owner | runtime: `github.repository_owner` or `.lakehouse/org.json` `orgName` |
+| Repository | `Template-Widget` |
 | Tier | `public` |
 | License | `pending` (suggested: Apache-2.0) |
 | Code owner | [@zsenarchitect](https://github.com/zsenarchitect) |
 | Runners | GitHub-hosted only |
 | Merge style | Merge commits only |
+| Action pins | [`.lakehouse/pins.json`](./.lakehouse/pins.json) |
+| Org runbook | `{owner}/.github` (see [docs/org.md](./docs/org.md)) |
 <!-- /AUTO:repo-meta -->
 
-Minimal public-template defaults: OpenSSF-aligned CI, README autogen, changelog policy, gitleaks, and guards that keep the org on **GitHub Free** with **GitHub-hosted runners only**.
+Minimal public-template defaults: OpenSSF-aligned CI, README autogen, changelog policy, gitleaks, and guards that keep the org on **GitHub Free** with **GitHub-hosted runners only**. Org rename readiness: brand-stable `packageScope` + custom `domain` (never `*.github.io`); see [docs/org.md](./docs/org.md).
 
 ## Quick start
 
@@ -43,6 +49,7 @@ Minimal public-template defaults: OpenSSF-aligned CI, README autogen, changelog 
 npm install
 npm run hooks:install
 npm run readme:gen
+npm run citation:gen
 npm run check:all
 ```
 

@@ -1,11 +1,12 @@
 # Contributing
 
-Thanks for helping improve LakeHouse-LLP public projects.
+Thanks for helping improve public projects under the brand in [`.lakehouse/org.json`](./.lakehouse/org.json).
 
 ## Before you start
 
 - Read [AGENTS.md](./AGENTS.md) (especially **Never do**).
 - Use GitHub-hosted runners only; keep the project **zero-cost** on GitHub Free.
+- Do not hardcode the GitHub org slug; see [docs/org.md](./docs/org.md).
 - Sign off every commit (DCO). Example:
 
   ```bash

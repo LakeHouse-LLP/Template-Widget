@@ -1,8 +1,10 @@
-# Agent instructions (LakeHouse-LLP public template)
+# Agent instructions (public template)
 
-This repository is the **Template-OpenSource** starter for public projects in the [LakeHouse-LLP](https://github.com/LakeHouse-LLP) GitHub organization.
+This repository is the **Template-OpenSource** starter for public projects in the org described by [`.lakehouse/org.json`](./.lakehouse/org.json) (brand + mutable `orgName`).
 
 Projects created from this template must use **plain repository names** (no `Template-` prefix). The `Template-` prefix is reserved for template repositories only.
+
+Org runbook / shared defaults: the organization [`.github`](./docs/org.md) repository (`{owner}/.github`, owner from `github.repository_owner` or `org.json`).
 
 ## Cost and hosting
 
@@ -30,6 +32,7 @@ Agents and automation must **never**:
 4. **Merge** into `Template-*` repositories or into the org `.github` repository.
 5. **Vendor** shared / org-common code into this tree (link or depend instead).
 6. **Push to an unexpected remote** (see `npm run check:remote` / `scripts/check-wrong-remote.mjs`).
+7. **Hardcode the GitHub org slug** in workflows, docs, or badges (use `org.json`, `github.repository_owner`, brand, or custom domain).
 
 ## Required local checks
 
@@ -39,7 +42,10 @@ npm run hooks:install          # gitleaks pre-commit (cross-platform)
 npm run check:remote           # WRONG_REMOTE guard
 npm run check:tier             # .lakehouse/tier === public and repo is public
 npm run check:runners          # fail if any workflow uses runs-on: self-hosted
+npm run check:org-slug         # fail on hardcoded org slug outside allowlist
+npm run check:pins             # workflow action SHAs match .lakehouse/pins.json
 npm run readme:gen             # refresh <!-- AUTO:* --> blocks
+npm run citation:gen           # refresh CITATION.cff from org.json
 npm run readme:check           # fail when README is stale
 ```
 
@@ -53,7 +59,7 @@ Hand-written README prose stays short. Generated sections live between:
 <!-- /AUTO:name -->
 ```
 
-CI fails when those blocks are stale. A weekly workflow regenerates them, opens a PR if needed, and runs lychee link checks.
+Public badges and links use the **custom domain** from `org.json` (never `*.github.io`). CI fails when AUTO blocks are stale. A weekly workflow regenerates them, opens a PR if needed, and runs lychee link checks.
 
 ## Changelog
 

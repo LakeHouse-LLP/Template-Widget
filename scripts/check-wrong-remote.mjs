@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 /**
- * WRONG_REMOTE guard — refuse to continue when `origin` is not the expected
- * LakeHouse-LLP GitHub remote for this working tree.
+ * WRONG_REMOTE guard — origin must match the expected GitHub owner/name.
+ * Owner comes from github.repository_owner (CI) or .lakehouse/org.json.
  */
 import { expectedRemoteFromEnvOrGit, git, parseGithubRemote } from "./lib/repo.mjs";
-
-const EXPECTED_ORG = "LakeHouse-LLP";
+import { loadOrg, resolveOrgOwner } from "./lib/org.mjs";
 
 function main() {
+  const org = loadOrg();
+  const expectedOwner = resolveOrgOwner(org);
+
   const origin = git(["remote", "get-url", "origin"], { ignoreError: true });
   if (!origin) {
     console.error("WRONG_REMOTE: no git remote named origin");
@@ -16,7 +18,7 @@ function main() {
 
   const actual = parseGithubRemote(origin);
   if (!actual) {
-    console.error(`WRONG_REMOTE: origin is not a GitHub remote: ${origin}`);
+    console.error("WRONG_REMOTE: origin is not a GitHub remote");
     process.exit(1);
   }
 
@@ -33,14 +35,14 @@ function main() {
     process.exit(1);
   }
 
-  if (actual.owner !== EXPECTED_ORG) {
-    console.error(`WRONG_REMOTE: origin org is ${actual.owner}, expected ${EXPECTED_ORG}`);
+  if (actual.owner !== expectedOwner) {
+    console.error(
+      `WRONG_REMOTE: origin org is ${actual.owner}, expected ${expectedOwner} (from github.repository_owner or org.json)`,
+    );
     process.exit(1);
   }
 
   if (actual.name.startsWith("Template-") && process.env.ALLOW_TEMPLATE_REMOTE !== "1") {
-    // Template repos themselves are allowed when GITHUB_REPOSITORY matches.
-    // Derived projects must not keep a Template- remote name.
     const repo = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? actual.name;
     if (repo !== actual.name) {
       console.error(

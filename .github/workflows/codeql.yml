@@ -1,3 +1,4 @@
+# Action SHAs and org reusable-workflow catalog: .lakehouse/pins.json
 name: codeql
 
 on:

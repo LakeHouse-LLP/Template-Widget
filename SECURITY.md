@@ -20,6 +20,8 @@ Agents must not change repository settings. The owner should enable (when ready)
 - **Code scanning** / Scorecard SARIF upload (workflows already present)
 - Branch protection requiring merge commits only
 
+Org identity / rename notes: [docs/org.md](./docs/org.md). Action pins and reusable workflow catalog: [`.lakehouse/pins.json`](./.lakehouse/pins.json).
+
 ## Supported versions
 
 Only the default branch (`main`) and the latest release tag receive security fixes unless noted otherwise in the release notes.

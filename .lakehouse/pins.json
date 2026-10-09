@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "description": "Single source of truth for Actions pins and org reusable workflow refs. Workflows must use SHAs listed here; check with npm run check:pins.",
+  "reusableWorkflows": {
+    "ownerSource": "github.repository_owner|.lakehouse/org.json#orgName",
+    "repo": ".github",
+    "pathPrefix": ".github/workflows",
+    "ref": "main",
+    "runbook": "Org runbook and shared defaults live in the organization .github repository (owner/.github). Resolve owner from github.repository_owner or org.json — never hardcode the slug in workflows.",
+    "catalog": {
+      "placeholder-ci": {
+        "file": "ci.yml",
+        "status": "planned",
+        "note": "Wire local jobs to owner/.github/.github/workflows/ci.yml@ref when the org runbook publishes reusable workflows."
+      }
+    }
+  },
+  "actions": {
+    "actions/checkout": {
+      "tag": "v7.0.1",
+      "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1"
+    },
+    "actions/setup-node": {
+      "tag": "v7.1.0",
+      "sha": "949feb2413d6458794dcd2491c4babbbce0c15c1"
+    },
+    "github/codeql-action": {
+      "tag": "v4.38.3",
+      "sha": "24c54180a607b1449ed407dd24f251e4e9147c8d"
+    },
+    "ossf/scorecard-action": {
+      "tag": "v2.4.4",
+      "sha": "2d1146689b8cda280b9bc96326124645441f03bc"
+    },
+    "lycheeverse/lychee-action": {
+      "tag": "v2.9.0",
+      "sha": "e7477775783ea5526144ba13e8db5eec57747ce8"
+    },
+    "softprops/action-gh-release": {
+      "tag": "v3.0.3",
+      "sha": "efb35369e0ad2afab669f228072c1b0d510eae64"
+    },
+    "peter-evans/create-pull-request": {
+      "tag": "v8.1.1",
+      "sha": "5f6978faf089d4d20b00c7766989d076bb2fc7f1"
+    }
+  }
+}

@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for the report. Prefer the org defaults in [LakeHouse-LLP/.github](https://github.com/LakeHouse-LLP/.github) unless this project needs an override.
+        Thanks for the report. Prefer the organization `.github` runbook defaults (see [docs/org.md](../blob/main/docs/org.md)) unless this project needs an override.
   - type: textarea
     id: summary
     attributes:

@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadOrg, resolveOrgOwner } from "./org.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(__dirname, "..", "..");
@@ -29,9 +30,6 @@ export function parseGithubRemote(url) {
   const cleaned = url.trim().replace(/\|.*$/, "");
   const ssh = cleaned.match(/^git@github\.com:([^/]+)\/([^/.]+)(?:\.git)?$/i);
   if (ssh) return { owner: ssh[1], name: ssh[2] };
-  // https://github.com/owner/repo[.git]
-  // https://x-access-token:token@github.com/owner/repo[.git]
-  // https://token@github.com/owner/repo[.git]
   const https = cleaned.match(
     /^https?:\/\/(?:[^@/\s]+@)?github\.com\/([^/]+)\/([^/.]+)(?:\.git)?\/?$/i,
   );
@@ -40,20 +38,28 @@ export function parseGithubRemote(url) {
 }
 
 export function expectedRemoteFromEnvOrGit() {
+  const org = loadOrg();
+  const owner = resolveOrgOwner(org);
+
   const fromEnv = process.env.EXPECTED_REMOTE?.trim();
   if (fromEnv) {
-    // Accept "owner/name" or a full remote URL. Always go through parseGithubRemote
-    // (host-anchored regex) — do not substring-match "github.com".
     const asRemote = /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(fromEnv)
       ? `https://github.com/${fromEnv}`
       : fromEnv;
     const parsed = parseGithubRemote(asRemote);
     if (parsed) return parsed;
   }
-  const serverOwner = process.env.GITHUB_REPOSITORY_OWNER;
-  const serverRepo = process.env.GITHUB_REPOSITORY?.split("/")[1];
-  if (serverOwner && serverRepo) return { owner: serverOwner, name: serverRepo };
+
+  const serverRepo =
+    process.env.GITHUB_REPOSITORY?.split("/")[1] ||
+    process.env.EXPECTED_REPO?.trim() ||
+    parseGithubRemote(git(["remote", "get-url", "origin"], { ignoreError: true }))?.name;
+
+  if (owner && serverRepo) return { owner, name: serverRepo };
 
   const origin = git(["remote", "get-url", "origin"], { ignoreError: true });
-  return parseGithubRemote(origin);
+  const parsed = parseGithubRemote(origin);
+  if (parsed) return parsed;
+  if (owner) return { owner, name: serverRepo || "unknown" };
+  return null;
 }
