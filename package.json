@@ -1,0 +1,23 @@
+{
+  "name": "template-opensource",
+  "version": "0.0.0",
+  "private": true,
+  "description": "LakeHouse-LLP public open-source project template",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "readme:gen": "node scripts/readme-gen.mjs",
+    "readme:check": "node scripts/readme-gen.mjs --check",
+    "hooks:install": "node scripts/install-hooks.mjs",
+    "check:remote": "node scripts/check-wrong-remote.mjs",
+    "check:tier": "node scripts/check-tier.mjs",
+    "check:runners": "node scripts/check-no-self-hosted.mjs",
+    "check:changelog": "node scripts/check-changelog.mjs",
+    "check:dco": "node scripts/check-dco.mjs",
+    "check:gitleaks": "node scripts/run-gitleaks.mjs",
+    "check:all": "npm run check:remote && npm run check:tier && npm run check:runners && npm run readme:check && npm run check:gitleaks"
+  },
+  "license": "UNLICENSED"
+}

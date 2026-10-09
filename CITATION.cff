@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: Template-OpenSource
+message: >-
+  If you use this software, please cite it using the metadata in this file.
+  Projects created from this template should update title, authors, and URLs
+  to match the new repository (plain project name, no Template- prefix).
+type: software
+authors:
+  - name: LakeHouse-LLP
+    website: https://github.com/LakeHouse-LLP
+  - family-names: Zhang
+    given-names: Sen
+    alias: zsenarchitect
+    website: https://github.com/zsenarchitect
+repository-code: https://github.com/LakeHouse-LLP/Template-OpenSource
+url: https://github.com/LakeHouse-LLP/Template-OpenSource
+license: pending
+# Suggested license once finalized: Apache-2.0
+keywords:
+  - template
+  - open-source
+  - lakehouse-llp
+abstract: >-
+  Public GitHub template for LakeHouse-LLP open-source projects. Provides
+  OpenSSF-aligned defaults, README generation, changelog policy, secret
+  scanning, and CI guards for zero-cost GitHub Free usage.
