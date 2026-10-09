@@ -7,7 +7,7 @@ Build repo URLs from `github.repository_owner` / `org.json` — do not hardcode 
 ## up-for-grabs.net
 
 1. Confirm the repo is public and has `good first issue` and/or `help wanted` issues.
-2. Follow [up-for-grabs](https://www.up-for-grabs.net/) project registration (usually a YAML entry in their repo).
+2. Follow [up-for-grabs](https://github.com/up-for-grabs/up-for-grabs.net) project registration (usually a YAML entry in their repo).
 3. Point tags/labels at exactly the GitHub label names we use.
 4. Revisit when labels change.
 
