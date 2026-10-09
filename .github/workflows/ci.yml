@@ -72,6 +72,17 @@ jobs:
           # Strict on main only — PRs warn until Sen applies description/topics in the UI.
           DISCOVERABILITY_STRICT: ${{ github.ref == 'refs/heads/main' }}
 
+      - name: Widget contract (widget.json schema + host range)
+        run: npm run check:widget
+        env:
+          LAKEHOUSE_HOST_VERSION: "0.1.0"
+
+      - name: Build widget bundle
+        run: npm run build
+
+      - name: Widget contract tests
+        run: npm test
+
       - name: Changelog policy
         if: github.event_name == 'pull_request'
         run: npm run check:changelog -- --strict

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LakeHouse Widget Preview (mock host)</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --lh-accent: #7dffff;
+        --lh-bg: #070a0e;
+        --lh-text: #e8eef5;
+        --lh-muted: #9aa7b5;
+        --lh-border: #243041;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+        background:
+          linear-gradient(160deg, #0e1620, #070a0e 55%),
+          var(--lh-bg);
+        color: var(--lh-text);
+      }
+      header {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--lh-border);
+      }
+      header h1 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      header p {
+        margin: 0.35rem 0 0;
+        color: var(--lh-muted);
+        font-size: 0.9rem;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        gap: 1rem;
+        padding: 1rem;
+        min-height: calc(100vh - 5rem);
+      }
+      iframe {
+        width: 100%;
+        min-height: 420px;
+        border: 1px solid var(--lh-border);
+        background: #0b0f14;
+      }
+      aside {
+        border: 1px solid var(--lh-border);
+        padding: 0.85rem;
+        font-size: 0.85rem;
+        color: var(--lh-muted);
+      }
+      aside h2 {
+        margin: 0 0 0.5rem;
+        color: var(--lh-accent);
+        font-size: 0.8rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      #log {
+        white-space: pre-wrap;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.75rem;
+        max-height: 50vh;
+        overflow: auto;
+      }
+      @media (max-width: 800px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Mock LakeHouse host</h1>
+      <p>
+        Local preview harness — iframe sandbox + postMessage bridge. Not the production host.
+      </p>
+    </header>
+    <main>
+      <iframe id="widget-frame" title="Widget sandbox" sandbox="allow-scripts allow-same-origin"></iframe>
+      <aside>
+        <h2>Host log</h2>
+        <div id="log">Waiting for widget…</div>
+      </aside>
+    </main>
+    <script type="module" src="./mock-host.js"></script>
+  </body>
+</html>

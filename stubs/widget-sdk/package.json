@@ -1,0 +1,16 @@
+{
+  "name": "@lakehouse/widget-sdk",
+  "version": "0.0.0-placeholder.0",
+  "description": "TODO(widget-sdk): Temporary local stub. Replace with the published @lakehouse/widget-sdk from the monorepo packages/widget-sdk. Do not expand this into a real SDK.",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

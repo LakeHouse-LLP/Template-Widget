@@ -2,14 +2,14 @@
 
 High-level direction for **LakeHouse Studio** open-source templates. Community **Ideas** are welcome in Discussions.
 
-This repository is **Template-OpenSource**: the general-purpose public starter. Projects created from it should use a **plain** repository name (no `Template-` prefix).
+This repository is **Template-Widget**: a standalone, agent-friendly LakeHouse widget starter (formerly Template-OpenSource — [docs/retired-names.md](./docs/retired-names.md)). Derived repos use a **plain** name (no `Template-` prefix).
 
 ## Near term
 
-- Solidify template defaults (community health, release, discoverability, contributor paths)
+- Solidify widget defaults (contract, preview harness, community health, release, discoverability)
 - Seed **3–5** `good first issue` / `help wanted` issues ([docs/starter-issues.md](./docs/starter-issues.md))
 - Stand up the Astro Starlight docs site on the custom domain ([site/](./site/), [docs/discoverability.md](./docs/discoverability.md))
-- Ship regular SemVer releases so newcomers see momentum ([docs/releasing.md](./docs/releasing.md))
+- Ship regular SemVer releases (loadable bundle + `widget.json`) so newcomers see momentum ([docs/releasing.md](./docs/releasing.md))
 
 ## Next
 

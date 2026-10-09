@@ -1,6 +1,6 @@
 # Seeding starter issues
 
-Each public repo created from Template-OpenSource should keep **3–5** open issues labeled for newcomers.
+Each public repo created from Template-Widget should keep **3–5** open issues labeled for newcomers.
 
 ## Labels
 

@@ -1,0 +1,69 @@
+:root {
+  color-scheme: dark;
+  --lh-accent: #7dffff;
+  --shell-bg: #070a0e;
+  --shell-text: #e8eef5;
+  --shell-muted: #9aa7b5;
+  --shell-border: #243041;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  background:
+    linear-gradient(165deg, #101824, var(--shell-bg) 50%),
+    var(--shell-bg);
+  color: var(--shell-text);
+}
+
+.shell-header,
+.shell-footer {
+  padding: 1rem 1.25rem;
+  border-color: var(--shell-border);
+}
+
+.shell-header {
+  border-bottom: 1px solid var(--shell-border);
+}
+
+.shell-brand {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lh-accent);
+}
+
+.shell-lead {
+  margin: 0.45rem 0 0;
+  max-width: 52rem;
+  color: var(--shell-muted);
+  line-height: 1.45;
+}
+
+.shell-main {
+  flex: 1;
+  padding: 1rem;
+}
+
+.shell-widget {
+  min-height: 420px;
+  border: 1px solid var(--shell-border);
+  overflow: hidden;
+}
+
+.shell-footer {
+  border-top: 1px solid var(--shell-border);
+  color: var(--shell-muted);
+  font-size: 0.85rem;
+}
+
+code {
+  color: var(--lh-accent);
+}

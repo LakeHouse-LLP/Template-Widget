@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Widget frame</title>
+    <style>
+      html,
+      body,
+      #widget-root {
+        margin: 0;
+        height: 100%;
+        background: #0b0f14;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="widget-root"></div>
+    <script type="module">
+      import widget from "../dist/widget.js";
+
+      const root = document.getElementById("widget-root");
+      const bridge = {
+        postMessage(type, payload) {
+          parent.postMessage({ source: "lakehouse-widget", type, payload }, "*");
+        },
+        onMessage(type, handler) {
+          const fn = (event) => {
+            const data = event.data;
+            if (!data || data.source !== "lakehouse-host" || data.type !== type) return;
+            handler(data.payload);
+          };
+          window.addEventListener("message", fn);
+          return () => window.removeEventListener("message", fn);
+        },
+        getSettings() {
+          return { title: "Hello Widget (preview)" };
+        },
+        reportReady() {
+          this.postMessage("widget.ready", { ok: true });
+        },
+      };
+
+      widget.mount({ root, bridge, inputs: { greeting: "Hello" } });
+    </script>
+  </body>
+</html>

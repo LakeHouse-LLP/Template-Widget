@@ -17,7 +17,7 @@ Org login / brand / public domain: [`.lakehouse/org.json`](./.lakehouse/org.json
 
 ## Scope
 
-- This repo is **Template-OpenSource** (general-purpose OSS template).
+- This repo is **Template-Widget** (standalone LakeHouse widget template).
 - Org defaults: `{owner}/.github` (prefer when published).
 - There is no second owner and no auto-archive policy.
 - **No automated stale bot** — see [GOVERNANCE.md](./GOVERNANCE.md).

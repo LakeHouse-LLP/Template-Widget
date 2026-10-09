@@ -4,7 +4,7 @@ Thanks for stopping by — we are glad you are here. This guide gets you product
 
 House rules (agents and humans): [AGENTS.md](./AGENTS.md). Code of conduct: [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md). Governance and response times: [GOVERNANCE.md](./GOVERNANCE.md).
 
-Identity / domain: [`.lakehouse/org.json`](./.lakehouse/org.json).
+Identity / domain: [`.lakehouse/org.json`](./.lakehouse/org.json). This repo is **Template-Widget** (a LakeHouse widget template). Retired name: Template-OpenSource — [docs/retired-names.md](./docs/retired-names.md).
 
 ## Find something to work on
 

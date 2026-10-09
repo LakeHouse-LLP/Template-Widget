@@ -1,15 +1,21 @@
 {
-  "name": "@lakehouse/template-opensource",
+  "name": "@lakehouse/template-widget",
   "version": "0.0.0",
-  "description": "Public open-source project template (LakeHouse brand; see .lakehouse/org.json)",
+  "description": "Standalone LakeHouse Studio widget template (agent-friendly; see .lakehouse/org.json)",
   "type": "module",
   "engines": {
     "node": ">=20"
   },
   "files": [
     ".lakehouse",
+    "apps/site",
+    "dist",
     "docs",
+    "overlays",
     "scripts",
+    "src",
+    "widget.json",
+    "widget.schema.json",
     "LICENSE",
     "NOTICE",
     "README.md",
@@ -22,6 +28,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
+    "build": "node scripts/build-widget.mjs",
+    "preview": "npm run build && node scripts/preview-server.mjs",
+    "site:serve": "npm run build && node scripts/preview-server.mjs",
+    "test": "node --test tests/**/*.test.mjs",
     "readme:gen": "node scripts/readme-gen.mjs",
     "readme:check": "node scripts/readme-gen.mjs --check",
     "citation:gen": "node scripts/citation-gen.mjs",
@@ -34,6 +44,7 @@
     "release:notes": "node scripts/release-notes.mjs",
     "release:validate": "node scripts/check-release-files.mjs",
     "check:discoverability": "node scripts/check-discoverability.mjs",
+    "check:widget": "node scripts/check-widget.mjs",
     "site:build": "npm ci --prefix site && npm run build --prefix site",
     "check:remote": "node scripts/check-wrong-remote.mjs",
     "check:tier": "node scripts/check-tier.mjs",
@@ -44,12 +55,18 @@
     "check:changelog": "node scripts/check-changelog.mjs",
     "check:dco": "node scripts/check-dco.mjs",
     "check:gitleaks": "node scripts/run-gitleaks.mjs",
-    "check:all": "npm run check:org && npm run check:remote && npm run check:tier && npm run check:runners && npm run check:org-slug && npm run check:pins && npm run readme:check && npm run citation:check && npm run release:validate && npm run check:discoverability && npm run check:gitleaks"
+    "check:all": "npm run check:org && npm run check:remote && npm run check:tier && npm run check:runners && npm run check:org-slug && npm run check:pins && npm run readme:check && npm run citation:check && npm run release:validate && npm run check:discoverability && npm run check:widget && npm run build && npm test && npm run check:gitleaks"
   },
   "license": "UNLICENSED",
+  "dependencies": {
+    "@lakehouse/widget-sdk": "file:./stubs/widget-sdk"
+  },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.5",
-    "@changesets/get-github-info": "^0.6.0"
+    "@changesets/get-github-info": "^0.6.0",
+    "@types/node": "^22.13.10",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.2"
   }
 }

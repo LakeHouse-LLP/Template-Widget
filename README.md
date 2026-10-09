@@ -1,4 +1,4 @@
-# Template-OpenSource
+# Template-Widget
 
 <!-- AUTO:header -->
 <picture>
@@ -7,9 +7,9 @@
 </picture>
 <!-- /AUTO:header -->
 
-**LakeHouse Studio** publishes open-source AEC tooling templates so architecture and engineering teams can ship Revit, Rhino, Grasshopper, InDesign, and BIM utilities with OpenSSF-aligned CI, changesets-based releases, Starlight docs SEO, and zero-cost GitHub Free runners — without client data, without `*.github.io` as the public hostname, and with a brand-stable `@lakehouse` package scope for design-tools automation.
+**LakeHouse Studio** ships standalone, agent-friendly widgets so designers and agents can fork a public widget, customize it, and load it into a LakeHouse office — with OpenSSF-aligned CI, changesets releases, Starlight docs SEO, dark-only UI (accent `#7DFFFF`), and zero-cost GitHub Free runners for AEC and design-tools workflows (Revit, Rhino, Grasshopper, BIM) without client data or `*.github.io` as the public hostname.
 
-⚠ TEMPLATE — starter for the **LakeHouse** brand (org identity: [`.lakehouse/org.json`](./.lakehouse/org.json)). Projects created from this template should use a **plain repository name** (no `Template-` prefix).
+⚠ TEMPLATE — **Template-Widget** (formerly Template-OpenSource; see [docs/retired-names.md](./docs/retired-names.md)). Org identity: [`.lakehouse/org.json`](./.lakehouse/org.json). Derived repos use a **plain** name (no `Template-` prefix).
 
 <!-- AUTO:badges -->
 [![CI](https://img.shields.io/badge/CI-domain%20pending-lightgrey)](./docs/org.md)
@@ -50,34 +50,35 @@
 | Org runbook | `{owner}/.github` (see [docs/org.md](./docs/org.md)) |
 <!-- /AUTO:repo-meta -->
 
-See [docs/discoverability.md](./docs/discoverability.md) for the GitHub description/topics standard and [site/](./site/) for the Starlight docs scaffold (dark mode, accent `#7DFFFF`).
+This repo **is a widget** with **three modes** from one codebase: public site (`apps/site`), LakeHouse host entry (`dist/widget.js`), and agent reference for per-user overlays ([docs/dynamic-ui.md](./docs/dynamic-ui.md)). Core lives in [`src/core/`](./src/core/); customization points in [`widget.json`](./widget.json). SDK: `@lakehouse/widget-sdk` (monorepo) — until published, use [`stubs/widget-sdk/`](./stubs/widget-sdk/) (do not vendor the real SDK).
 
 ## Quick start
 
 ```bash
 npm install
 npm run hooks:install
-npm run readme:gen
-npm run citation:gen
-npm run check:all
-cd site && npm ci && npm run build
+npm run check:widget
+npm run build
+npm test
+npm run preview      # mock LakeHouse host
+npm run site:serve   # public shell → /apps/site/?overlay=example
 ```
+
+Agents: prefer **overlays** over forking ([docs/customization.md](./docs/customization.md)). PDF markup-style example in [docs/dynamic-ui.md](./docs/dynamic-ui.md). See [AGENTS.md](./AGENTS.md).
 
 ## Releasing
 
-Changesets → CI version PR → CI-only `vX.Y.Z` tag → build, checksums, provenance attestations → **draft** GitHub Release → npm OIDC trusted publishing.
+Changesets → CI version PR → CI-only `vX.Y.Z` tag → **widget bundle + widget.json** + npm pack, checksums, provenance → **draft** GitHub Release → npm OIDC.
 
-Regular releases help GitHub ranking — see [docs/releasing.md](./docs/releasing.md).
-
+- [docs/releasing.md](./docs/releasing.md)
 - [docs/pre-release-checklist.md](./docs/pre-release-checklist.md)
 - [docs/seo-launch-checklist.md](./docs/seo-launch-checklist.md)
 - [docs/rollback.md](./docs/rollback.md)
-- Media: [docs/media/](./docs/media/)
 
 ## Discoverability
 
 - Standard: [docs/discoverability.md](./docs/discoverability.md)
-- Org profile / pins strategy: [docs/org-profile.md](./docs/org-profile.md)
+- Org profile / pins: [docs/org-profile.md](./docs/org-profile.md)
 - Awesome lists: [docs/awesome-lists.md](./docs/awesome-lists.md)
 - Sen SEO verification + GoatCounter: [docs/sen-seo-verification.md](./docs/sen-seo-verification.md)
 - CI: `npm run check:discoverability`
@@ -88,7 +89,7 @@ See [AGENTS.md](./AGENTS.md) (imported by [CLAUDE.md](./CLAUDE.md)).
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for the 5-minute Mac/Windows setup, Codespaces, DCO sign-off, and stacked-PR merge-commit workflow. Also: [ROADMAP.md](./ROADMAP.md), [SUPPORT.md](./SUPPORT.md), [GOVERNANCE.md](./GOVERNANCE.md), [docs/starter-issues.md](./docs/starter-issues.md).
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the 5-minute Mac/Windows setup, Codespaces, DCO, and stacked PRs. Also: [ROADMAP.md](./ROADMAP.md), [SUPPORT.md](./SUPPORT.md), [GOVERNANCE.md](./GOVERNANCE.md), [docs/starter-issues.md](./docs/starter-issues.md).
 
 ## Security
 

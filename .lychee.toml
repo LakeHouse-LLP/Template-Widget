@@ -10,4 +10,6 @@ exclude = [
   '^http://localhost',
   '^https://localhost',
   '^https://api\\.scorecard\\.dev/',
+  # Marketing site is flaky under CI; docs link to the GitHub repo instead.
+  '^https://www\\.up-for-grabs\\.net/?',
 ]

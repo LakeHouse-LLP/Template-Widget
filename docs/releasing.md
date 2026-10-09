@@ -9,9 +9,9 @@ Org runbook companion: `{owner}/.github` → `docs/releasing.md` (see [org.md](.
 1. **Changeset** on every meaningful PR (`npx changeset`) — drives `CHANGELOG.md` sections: Added, Changed, Deprecated, Removed, Fixed, Security. Link PRs in the summary. Call out breaking changes with migration notes.
 2. **Version PR** — CI (`changeset-version` workflow) opens a “Version Packages” PR via changesets. Merge with a **merge commit**.
 3. **Tag** — CI only (`scripts/release-tag.mjs`) creates an **annotated** `vX.Y.Z` tag after the version PR lands. Never tag by hand.
-4. **Build** — `scripts/release-build.mjs` runs `npm pack` into `release-assets/` and writes `SHA256SUMS`.
-5. **Attest** — `actions/attest-build-provenance` on release artifacts.
-6. **Draft GitHub Release** — notes from `.github/release-notes-template.md` + `.github/release.yml` categories; assets + checksums attached; **draft=true**.
+4. **Build** — `scripts/release-build.mjs` builds the **loadable widget bundle** (`dist/widget.js`) + copies `widget.json`, runs `npm pack` into `release-assets/`, and writes `SHA256SUMS`.
+5. **Attest** — `actions/attest-build-provenance` on release artifacts (bundle, manifest, tarball, checksums).
+6. **Draft GitHub Release** — notes from `.github/release-notes-template.md` + `.github/release.yml` categories; widget assets + checksums attached; **draft=true**.
 7. **npm publish** — OIDC trusted publishing (`id-token: write`, no long-lived npm token). Sen configures the trusted publisher on npmjs.com.
 
 Sen (or an approved maintainer) publishes the draft release when ready.

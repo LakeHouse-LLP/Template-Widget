@@ -1,0 +1,21 @@
+{
+  "label": "Example designer persona",
+  "themeTokens": {
+    "accent": "#7DFFFF",
+    "panel": "#151c28"
+  },
+  "featureFlags": {
+    "showSidebar": false,
+    "enableExport": true,
+    "enablePing": true
+  },
+  "toolbar": {
+    "actions": [
+      { "id": "ping", "label": "Notify office", "enabled": true },
+      { "id": "export", "label": "Export markups", "enabled": true }
+    ]
+  },
+  "settings": {
+    "title": "Hello Widget · customized"
+  }
+}

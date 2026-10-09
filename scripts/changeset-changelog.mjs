@@ -11,7 +11,7 @@ function resolveRepo(options = {}) {
   const org = loadOrg();
   const owner = resolveOrgOwner(org);
   const remote = expectedRemoteFromEnvOrGit();
-  const name = remote?.name || process.env.GITHUB_REPOSITORY?.split("/")[1] || "Template-OpenSource";
+  const name = remote?.name || process.env.GITHUB_REPOSITORY?.split("/")[1] || "Template-Widget";
   return `${owner}/${name}`;
 }
 

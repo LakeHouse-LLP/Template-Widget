@@ -1,0 +1,128 @@
+{
+  "$schema": "./widget.schema.json",
+  "id": "lakehouse.hello-widget",
+  "name": "Hello Widget",
+  "version": "0.0.0",
+  "description": "Standalone LakeHouse Studio hello-world widget — public site, in-app embed, and agent customization reference from one codebase.",
+  "author": {
+    "name": "LakeHouse Studio"
+  },
+  "license": "UNLICENSED",
+  "entry": {
+    "path": "dist/widget.js",
+    "export": "default"
+  },
+  "standalone": {
+    "path": "dist/standalone.js",
+    "site": "apps/site"
+  },
+  "ui": {
+    "surfaces": ["panel", "standalone"],
+    "slots": ["toolbar", "main", "sidebar", "status"]
+  },
+  "inputs": {
+    "greeting": {
+      "type": "string",
+      "description": "Optional greeting override",
+      "default": "Hello"
+    }
+  },
+  "outputs": {
+    "ready": {
+      "type": "boolean",
+      "description": "True once the widget has mounted"
+    }
+  },
+  "events": {
+    "ping": {
+      "description": "Emitted when the user triggers the ping action",
+      "payload": {
+        "type": "object"
+      }
+    },
+    "hook": {
+      "description": "Extension hook lifecycle events (onMount, onAction, onUnmount)",
+      "payload": {
+        "type": "object"
+      }
+    }
+  },
+  "permissions": [],
+  "capabilities": ["ui.panel", "ui.standalone"],
+  "settingsSchema": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "default": "Hello Widget"
+      },
+      "overlay": {
+        "type": "object",
+        "description": "Per-user overlay merged onto customization defaults"
+      }
+    },
+    "additionalProperties": false
+  },
+  "customization": {
+    "preference": "overlay",
+    "forkFallback": true,
+    "documentation": "docs/customization.md",
+    "themeTokens": {
+      "accent": "#7DFFFF",
+      "bg": "#0b0f14",
+      "panel": "#121821",
+      "text": "#e8eef5",
+      "muted": "#9aa7b5",
+      "border": "#243041"
+    },
+    "layoutSlots": ["toolbar", "main", "sidebar", "status"],
+    "featureFlags": {
+      "showSidebar": true,
+      "showStatusBar": true,
+      "enablePing": true,
+      "enableExport": false
+    },
+    "toolbar": {
+      "actions": [
+        { "id": "ping", "label": "Ping host", "enabled": true },
+        { "id": "export", "label": "Export", "enabled": false }
+      ]
+    },
+    "extensionHooks": ["onMount", "onAction", "onUnmount"],
+    "overlays": {
+      "directory": "overlays",
+      "example": "overlays/example.user.json"
+    }
+  },
+  "engines": {
+    "lakehouse": ">=0.1.0 <1.0.0"
+  },
+  "icons": {
+    "svg": "docs/media/logo-dark.svg"
+  },
+  "screenshots": [],
+  "agentHints": {
+    "summary": "One codebase, three modes: public site (apps/site), LakeHouse host widget (dist/widget.js), and agent reference for per-user overlays. Prefer overlays over forking.",
+    "modes": ["standalone-site", "lakehouse-host", "agent-reference"],
+    "customizationOrder": [
+      "Apply user overlay (themeTokens, layoutSlots, featureFlags, toolbar, extensionHooks)",
+      "Adjust widget.json customization defaults if the product default should change for everyone",
+      "Fork only for deeper structural/backend changes"
+    ],
+    "safeToEdit": [
+      "src/core/",
+      "src/entry/",
+      "apps/site/",
+      "overlays/",
+      "widget.json",
+      "preview/",
+      "docs/media/"
+    ],
+    "doNotTouch": [
+      "stubs/widget-sdk/",
+      ".lakehouse/",
+      ".github/workflows/"
+    ],
+    "loadIntoOffice": "Build with npm run build, then load dist/widget.js + widget.json into the LakeHouse host (see AGENTS.md)."
+  }
+}

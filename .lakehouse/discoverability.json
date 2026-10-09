@@ -3,7 +3,7 @@
   "brandStudio": "LakeHouse Studio",
   "accentToken": "#7DFFFF",
   "description": {
-    "expected": "LakeHouse Studio public template for AEC open-source tools — Revit, Rhino, Grasshopper, BIM, and design automation starters with OpenSSF-aligned CI (tier: public).",
+    "expected": "LakeHouse Studio Template-Widget — standalone agent-friendly widget starter (dark-only, accent #7DFFFF) for AEC/design-tools offices: fork, customize, load (tier: public).",
     "minLength": 80,
     "maxLength": 350
   },
@@ -16,7 +16,6 @@
       "bim",
       "design-tools",
       "grasshopper",
-      "indesign",
       "nodejs",
       "opensource",
       "revit",
@@ -24,18 +23,19 @@
       "starlight",
       "template",
       "tier-public",
-      "typescript"
+      "typescript",
+      "widget"
     ]
   },
   "readme": {
     "minFirstParagraphWords": 45,
     "requiredKeywords": [
       "LakeHouse",
+      "widget",
       "Revit",
       "Rhino",
       "Grasshopper",
       "BIM",
-      "open-source",
       "AEC"
     ]
   },
@@ -48,10 +48,10 @@
     "path": "site",
     "stack": "astro-starlight",
     "theme": "dark-only",
-    "justification": "Ship a per-repo Starlight scaffold as the flagship seed for one org docs hub on the custom domain (when Sen sets REPLACE_WITH_CUSTOM_DOMAIN). Matches the monorepo Astro choice; avoids *.github.io as the public hostname by using the org.json domain for canonical/OG URLs once set. Other repos can deep-link into the hub later."
+    "justification": "Ship a per-repo Starlight scaffold as the flagship seed for one org docs hub on the custom domain (when Sen sets REPLACE_WITH_CUSTOM_DOMAIN). Matches the monorepo Astro choice; avoids *.github.io as the public hostname by using the org.json domain for canonical/OG URLs once set."
   },
   "analytics": {
     "choice": "goatcounter",
-    "justification": "GoatCounter is free for non-commercial/open-source, privacy-friendly (no cookie banner required in typical setups), zero-cost to self-host or use the free hosted tier, and does not require a business Cloudflare plan. Wire the script only after Sen creates a site — never enable tracking until verification is ready."
+    "justification": "GoatCounter is free for non-commercial/open-source, privacy-friendly, zero-cost to self-host or use the free hosted tier, and does not require a business Cloudflare plan. Wire the script only after Sen creates a site."
   }
 }

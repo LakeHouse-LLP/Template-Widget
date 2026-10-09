@@ -89,6 +89,8 @@ jobs:
         with:
           subject-path: |
             release-assets/*.tgz
+            release-assets/*.js
+            release-assets/widget.json
             release-assets/SHA256SUMS
 
       - name: Draft GitHub Release
@@ -101,6 +103,9 @@ jobs:
           body_path: release-assets/RELEASE_NOTES.md
           files: |
             release-assets/*.tgz
+            release-assets/*.js
+            release-assets/*.map
+            release-assets/widget.json
             release-assets/SHA256SUMS
 
       - name: Publish to npm (OIDC trusted publishing)

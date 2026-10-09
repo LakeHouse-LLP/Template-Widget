@@ -69,6 +69,7 @@ export default defineConfig({
           label: "Start",
           items: [
             { label: "Overview", slug: "index" },
+            { label: "Widgets", slug: "guides/widgets" },
             { label: "Discoverability", slug: "guides/discoverability" },
             { label: "Releasing", slug: "guides/releasing" },
           ],

@@ -37,6 +37,13 @@ export function parseGithubRemote(url) {
   return null;
 }
 
+/** Map retired GitHub names to the canonical template name for docs/AUTO only. */
+export function canonicalizeRepoName(name) {
+  if (!name) return name;
+  if (name === "Template-OpenSource") return "Template-Widget";
+  return name;
+}
+
 export function expectedRemoteFromEnvOrGit() {
   const org = loadOrg();
   const owner = resolveOrgOwner(org);

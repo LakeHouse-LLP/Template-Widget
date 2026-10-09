@@ -1,5 +1,5 @@
 {
-  "name": "Template-OpenSource",
+  "name": "Template-Widget",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}

@@ -5,7 +5,12 @@
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { ROOT, expectedRemoteFromEnvOrGit, readText } from "./lib/repo.mjs";
+import {
+  ROOT,
+  canonicalizeRepoName,
+  expectedRemoteFromEnvOrGit,
+  readText,
+} from "./lib/repo.mjs";
 import {
   loadOrg,
   publicBaseUrl,
@@ -50,7 +55,7 @@ function licenseStatus() {
 
 function generators(org, remote) {
   const base = publicBaseUrl(org);
-  const name = remote?.name ?? "Template-OpenSource";
+  const name = canonicalizeRepoName(remote?.name ?? "Template-Widget");
   resolveOrgOwner(org);
   const lic = licenseStatus();
   const t = tier();

@@ -5,7 +5,12 @@
  */
 import { writeFileSync } from "node:fs";
 import path from "node:path";
-import { ROOT, expectedRemoteFromEnvOrGit, readText } from "./lib/repo.mjs";
+import {
+  ROOT,
+  canonicalizeRepoName,
+  expectedRemoteFromEnvOrGit,
+  readText,
+} from "./lib/repo.mjs";
 import { loadOrg, publicBaseUrl, isDomainPlaceholder } from "./lib/org.mjs";
 
 const OUT = path.join(ROOT, "CITATION.cff");
@@ -19,7 +24,7 @@ function yamlEscape(value) {
 
 function buildCitation(org, remote) {
   const base = publicBaseUrl(org);
-  const title = remote?.name ?? "Template-OpenSource";
+  const title = canonicalizeRepoName(remote?.name ?? "Template-Widget");
   const licenseRaw = readText("LICENSE");
   const license = /License pending/i.test(licenseRaw)
     ? "pending"

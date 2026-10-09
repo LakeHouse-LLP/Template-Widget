@@ -17,7 +17,7 @@ function main() {
   const org = loadOrg();
   const owner = resolveOrgOwner(org);
   const remote = expectedRemoteFromEnvOrGit();
-  const repo = remote?.name || "Template-OpenSource";
+  const repo = remote?.name || "Template-Widget";
   const base = publicBaseUrl(org);
   const githubRepo = `https://github.com/${owner}/${repo}`;
   const publicBase = base ?? `(set domain in .lakehouse/org.json; currently ${org.domain})`;

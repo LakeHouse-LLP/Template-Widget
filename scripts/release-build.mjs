@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Build release artifacts: npm pack + SHA256SUMS (cross-platform Node).
+ * Build release artifacts: widget bundle + widget.json + npm pack + SHA256SUMS.
  */
 import { createHash } from "node:crypto";
 import {
@@ -10,6 +10,8 @@ import {
   readdirSync,
   writeFileSync,
   rmSync,
+  copyFileSync,
+  existsSync,
 } from "node:fs";
 import { pipeline } from "node:stream/promises";
 import path from "node:path";
@@ -28,9 +30,26 @@ async function main() {
   rmSync(OUT, { recursive: true, force: true });
   mkdirSync(OUT, { recursive: true });
 
-  const pkg = JSON.parse(readFileSync(path.join(ROOT, "package.json"), "utf8"));
-  if (pkg.scripts?.build) {
-    execFileSync("npm", ["run", "build"], { cwd: ROOT, stdio: "inherit" });
+  execFileSync("npm", ["run", "build"], { cwd: ROOT, stdio: "inherit" });
+
+  const distWidget = path.join(ROOT, "dist", "widget.js");
+  const distStandalone = path.join(ROOT, "dist", "standalone.js");
+  const distManifest = path.join(ROOT, "dist", "widget.json");
+  if (!existsSync(distWidget) || !existsSync(distManifest)) {
+    console.error("release-build: missing dist/widget.js or dist/widget.json");
+    process.exit(1);
+  }
+
+  const manifest = JSON.parse(readFileSync(distManifest, "utf8"));
+  const bundleName = `${manifest.id.replace(/[^a-zA-Z0-9._-]+/g, "-")}-${manifest.version}.js`;
+  const standaloneName = `${manifest.id.replace(/[^a-zA-Z0-9._-]+/g, "-")}-${manifest.version}.standalone.js`;
+  copyFileSync(distWidget, path.join(OUT, bundleName));
+  if (existsSync(distStandalone)) {
+    copyFileSync(distStandalone, path.join(OUT, standaloneName));
+  }
+  copyFileSync(distManifest, path.join(OUT, "widget.json"));
+  if (existsSync(path.join(ROOT, "dist", "widget.js.map"))) {
+    copyFileSync(path.join(ROOT, "dist", "widget.js.map"), path.join(OUT, `${bundleName}.map`));
   }
 
   execFileSync("npm", ["pack", "--pack-destination", OUT], {
@@ -38,9 +57,9 @@ async function main() {
     stdio: "inherit",
   });
 
-  const files = readdirSync(OUT).filter((n) => n.endsWith(".tgz"));
+  const files = readdirSync(OUT).filter((n) => !n.endsWith(".md") && n !== "SHA256SUMS");
   if (files.length === 0) {
-    console.error("release-build: no .tgz produced");
+    console.error("release-build: no artifacts produced");
     process.exit(1);
   }
 
@@ -51,7 +70,7 @@ async function main() {
   }
 
   writeFileSync(path.join(OUT, "SHA256SUMS"), `${lines.join("\n")}\n`, "utf8");
-  console.log(`release-build: ${files.length} tarball(s) + SHA256SUMS`);
+  console.log(`release-build: ${files.length} artifact(s) + SHA256SUMS`);
 }
 
 main().catch((err) => {

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello Widget — LakeHouse Studio</title>
+    <meta
+      name="description"
+      content="Free standalone LakeHouse Studio widget demo. Same codebase loads in the LakeHouse desktop/web apps and drives agent customizations."
+    />
+    <link rel="stylesheet" href="./shell.css" />
+  </head>
+  <body>
+    <header class="shell-header">
+      <div class="shell-brand">LakeHouse Studio</div>
+      <p class="shell-lead">
+        Public free website shell — same widget core as the in-app embed. Deploy this
+        <code>apps/site</code> folder (plus <code>dist/</code>) on Vercel free or GitHub Pages with your custom domain.
+      </p>
+    </header>
+    <main class="shell-main">
+      <div id="widget-root" class="shell-widget"></div>
+    </main>
+    <footer class="shell-footer">
+      Prefer per-user overlays in <code>widget.json</code> customization points; fork only for deeper changes.
+      See <code>docs/dynamic-ui.md</code>.
+    </footer>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

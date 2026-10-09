@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/lakehouse/schemas/widget.schema.json",
+  "title": "LakeHouse widget.json (temporary local schema)",
+  "description": "TODO(widget-sdk): Replace this file with the canonical schema from @lakehouse/widget-sdk once published. Do not treat this as the long-term source of truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "version",
+    "description",
+    "author",
+    "license",
+    "entry",
+    "ui",
+    "engines",
+    "customization"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+([._-][a-z0-9]+)*$",
+      "minLength": 3
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+([.-][0-9A-Za-z.-]+)?$"
+    },
+    "description": { "type": "string", "minLength": 1 },
+    "author": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "license": { "type": "string" },
+    "entry": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": { "type": "string" },
+        "export": { "type": "string" },
+        "url": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "standalone": {
+      "type": "object",
+      "properties": {
+        "path": { "type": "string" },
+        "site": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "ui": {
+      "type": "object",
+      "required": ["surfaces"],
+      "properties": {
+        "surfaces": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "slots": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "inputs": { "type": "object" },
+    "outputs": { "type": "object" },
+    "events": { "type": "object" },
+    "permissions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "settingsSchema": { "type": "object" },
+    "customization": {
+      "type": "object",
+      "required": [
+        "preference",
+        "themeTokens",
+        "layoutSlots",
+        "featureFlags",
+        "toolbar",
+        "extensionHooks"
+      ],
+      "properties": {
+        "preference": {
+          "type": "string",
+          "enum": ["overlay", "fork"]
+        },
+        "forkFallback": { "type": "boolean" },
+        "documentation": { "type": "string" },
+        "themeTokens": { "type": "object" },
+        "layoutSlots": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "featureFlags": { "type": "object" },
+        "toolbar": { "type": "object" },
+        "extensionHooks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "overlays": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "engines": {
+      "type": "object",
+      "required": ["lakehouse"],
+      "properties": {
+        "lakehouse": {
+          "type": "string",
+          "description": "SemVer range of supported LakeHouse host versions"
+        }
+      },
+      "additionalProperties": false
+    },
+    "backend": { "type": "object" },
+    "icons": { "type": "object" },
+    "screenshots": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "agentHints": { "type": "object" }
+  }
+}
