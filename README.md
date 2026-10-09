@@ -26,6 +26,7 @@
 - [Agent rules](#agent-rules)
 - [Contributing](#contributing)
 - [Security](#security)
+- [Contributors](#contributors)
 - [License](#license)
 <!-- /AUTO:toc -->
 
@@ -87,11 +88,28 @@ See [AGENTS.md](./AGENTS.md) (imported by [CLAUDE.md](./CLAUDE.md)).
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for DCO sign-off and the stacked-PR merge-commit workflow.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the 5-minute Mac/Windows setup, Codespaces, DCO sign-off, and stacked-PR merge-commit workflow. Also: [ROADMAP.md](./ROADMAP.md), [SUPPORT.md](./SUPPORT.md), [GOVERNANCE.md](./GOVERNANCE.md), [docs/starter-issues.md](./docs/starter-issues.md).
 
 ## Security
 
 See [SECURITY.md](./SECURITY.md).
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://allcontributors.org) specification. Contributions of any kind welcome!
 
 ## License
 

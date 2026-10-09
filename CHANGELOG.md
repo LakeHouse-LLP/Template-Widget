@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `docs/org.md` pointing at the organization `.github` runbook.
 - Flagship release system: changesets, CI-only `vX.Y.Z` tags, draft GitHub Releases with SHA256 checksums and `attest-build-provenance`, npm OIDC trusted publishing, release-notes template, `.github/release.yml`, `docs/media/` convention, pre-release checklist, and rollback/yank docs.
 - SEO/discoverability: `.lakehouse/discoverability.json` standard, README keyword paragraph, social preview, Astro Starlight docs site (dark-only, `#7DFFFF` accent), launch checklist, GoatCounter/Search Console Sen docs, and `check:discoverability` CI.
+- Contributor growth: friendly CONTRIBUTING + Codespaces `.devcontainer`, ROADMAP/SUPPORT/GOVERNANCE (no stale bot), starter-issue and listings guides, maintainer playbook, all-contributors README block, and SHA-pinned `welcome` workflow (`actions/first-interaction`).
 
 ### Fixed
 

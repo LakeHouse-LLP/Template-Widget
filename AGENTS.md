@@ -65,6 +65,10 @@ Public badges and links use the **custom domain** from `org.json` (never `*.gith
 
 Follow [docs/discoverability.md](./docs/discoverability.md). Do not change GitHub description/topics/homepage (Sen-only). Run `npm run check:discoverability`.
 
+## Contributors
+
+Community health files: [CONTRIBUTING.md](./CONTRIBUTING.md), [GOVERNANCE.md](./GOVERNANCE.md), [SUPPORT.md](./SUPPORT.md), [ROADMAP.md](./ROADMAP.md), [docs/maintainer-playbook.md](./docs/maintainer-playbook.md). Seed starter issues per [docs/starter-issues.md](./docs/starter-issues.md). Never run fork PR code on self-hosted runners; never pair `pull_request_target` with checkout of PR code.
+
 ## Changelog and releases
 
 Every PR must add a **changeset** (`npx changeset`) and/or update `CHANGELOG.md`, **or** carry the `skip-changelog` label.

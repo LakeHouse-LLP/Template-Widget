@@ -51,6 +51,10 @@
     "actions/attest-build-provenance": {
       "tag": "v4.2.2",
       "sha": "4d101475d8b20a2381f78447822ac1eab6504dd8"
+    },
+    "actions/first-interaction": {
+      "tag": "v3.1.0",
+      "sha": "1c4688942c71f71d4f5502a26ea67c331730fa4d"
     }
   }
 }

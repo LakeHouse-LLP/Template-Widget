@@ -11,6 +11,7 @@ Canonical expected values: [`.lakehouse/discoverability.json`](../.lakehouse/dis
 | Topics | 8–20 from `topics.expected` — include `revit`, `rhino`, `grasshopper`, `bim`, `aec`, `architecture`, `indesign`, `design-tools` as relevant |
 | Social preview | Upload 1280×640 from `docs/media/social-preview.svg` (or PNG export) |
 | Releases | Immutable releases on; draft-first; release regularly for ranking |
-| Features | Discussions on for announcements; Wikis off unless needed |
+| Features | Discussions on (categories: Ideas, Q&A, Show and tell — Sen-only); Wikis off unless needed |
+| Community | Labels from `.github/labels.yml`; seed 3–5 `good first issue` / `help wanted` ([starter-issues.md](./starter-issues.md)) |
 
 Template repos keep the `Template-` prefix; projects created from them use **plain** names.

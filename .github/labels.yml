@@ -10,10 +10,13 @@
   description: Improvements or additions to documentation
 - name: good first issue
   color: "7057ff"
-  description: Good for newcomers
+  description: Good for newcomers — see docs/starter-issues.md
 - name: help wanted
   color: "008672"
-  description: Extra attention is needed
+  description: Extra attention is needed — clear problem, open to community PRs
+- name: needs-triage
+  color: "fbca04"
+  description: Needs review / triage
 - name: question
   color: "d876e3"
   description: Further information is requested

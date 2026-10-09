@@ -113,6 +113,7 @@ function generators(org, remote) {
       "- [Agent rules](#agent-rules)",
       "- [Contributing](#contributing)",
       "- [Security](#security)",
+      "- [Contributors](#contributors)",
       "- [License](#license)",
     ].join("\n"),
   };
