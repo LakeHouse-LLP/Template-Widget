@@ -50,12 +50,13 @@ git commit -s -m "Describe your change"
 2. Fill the PR template (summary, stack, tests, checklist).
 3. Touch `CHANGELOG.md` / `.changeset/` **or** add the `skip-changelog` label.
 4. Wait for CI (GitHub-hosted on public repos). Maintainers will not run untrusted fork code on self-hosted runners — see [docs/maintainer-playbook.md](./docs/maintainer-playbook.md).
-5. Sen merges with a **merge commit** only (never squash/rebase-merge).
+5. Sen merges with a **merge commit** only (never squash/rebase-merge). On **public** repos, Sen uses the **GitHub merge queue** on `main` ([docs/merge-queue.md](./docs/merge-queue.md)). Contributors and agents do **not** enqueue or merge.
 
 ## Org constraints (summary)
 
 - **ZERO COST** — GitHub Free only.
-- **Runners** — Public: GitHub-hosted only. Never self-hosted on public.
+- **Runners** — Public: GitHub-hosted only. Never self-hosted on public. Merge-queue (`merge_group`) checks also use GitHub-hosted runners.
+- **Merge queue** — Required on public `main` (Free plan allows it). Private templates stay manual bottom-up merge commits — see [docs/merge-queue.md](./docs/merge-queue.md).
 - **Identity** — Do not hardcode the GitHub org login; use `org.json` or `${{ github.repository_owner }}`.
 - Prefer org reusable workflows/docs in `{owner}/.github` when published; local copies carry a `TODO` until then.
 

@@ -6,12 +6,12 @@
 
 | Topic | Who |
 | --- | --- |
-| Merge to `main`, `Template-*`, `.github` | Sen |
+| Merge / enqueue merge queue to `main`, `Template-*`, `.github` | Sen ([docs/merge-queue.md](./docs/merge-queue.md)) |
 | Org/repo settings, rulesets, secrets, Discussions categories | Sen only ([docs/sen-only-github-settings.md](./docs/sen-only-github-settings.md)) |
 | Roadmap direction | Sen; community Ideas welcome in Discussions |
 | Security advisories | Sen ([SECURITY.md](./SECURITY.md)) |
 
-Agents and contributors open **draft** PRs; they do not merge protected/template/defaults repos.
+Agents and contributors open **draft** PRs; they do not merge or enqueue the merge queue on protected/template/defaults repos.
 
 ## Response-time goals
 

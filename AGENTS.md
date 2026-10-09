@@ -52,6 +52,8 @@ Read [docs/dynamic-ui.md](./docs/dynamic-ui.md). Example: a **PDF markup** publi
 ## Merge policy
 
 - **Merge commits only**. Prefer small **stacked PRs**. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+- **Public** repos (this template): Sen uses the **GitHub merge queue** on `main` (ruleset). See [docs/merge-queue.md](./docs/merge-queue.md). Org canonical: `{owner}/.github` → `docs/merge-queue.md`.
+- Agents **never enqueue** or **merge**; Sen does.
 
 ## License
 
@@ -63,10 +65,11 @@ Read [docs/dynamic-ui.md](./docs/dynamic-ui.md). Example: a **PDF markup** publi
 2. **Force-push** to any branch.  
 3. **Delete or rename** repositories, branches, or tags.  
 4. **Merge** into `Template-*` or org `.github`.  
-5. **Vendor** the real `@lakehouse/widget-sdk` or other monorepo packages.  
-6. **Push to an unexpected remote** (`npm run check:remote`).  
-7. **Hardcode the GitHub org slug**.  
-8. **Create, edit, or delete Vercel environment variables** (including `vercel env add` / `rm` / dashboard edits) without Sen’s **explicit** approval.
+5. **Enqueue** a PR into the GitHub merge queue (or otherwise land changes on protected branches).  
+6. **Vendor** the real `@lakehouse/widget-sdk` or other monorepo packages.  
+7. **Push to an unexpected remote** (`npm run check:remote`).  
+8. **Hardcode the GitHub org slug**.  
+9. **Create, edit, or delete Vercel environment variables** (including `vercel env add` / `rm` / dashboard edits) without Sen’s **explicit** approval.
 
 ## Required local checks
 

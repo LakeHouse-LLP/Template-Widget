@@ -11,8 +11,8 @@ function prCommitRange() {
   const eventPath = process.env.GITHUB_EVENT_PATH;
   if (eventPath && existsSync(eventPath)) {
     const event = JSON.parse(readFileSync(eventPath, "utf8"));
-    const base = event.pull_request?.base?.sha;
-    const head = event.pull_request?.head?.sha;
+    const base = event.pull_request?.base?.sha ?? event.merge_group?.base_sha;
+    const head = event.pull_request?.head?.sha ?? event.merge_group?.head_sha;
     if (base && head) return { base, head };
   }
   const baseRef = process.env.GITHUB_BASE_REF || "main";
@@ -21,8 +21,9 @@ function prCommitRange() {
 }
 
 function main() {
-  if (process.env.GITHUB_EVENT_NAME && process.env.GITHUB_EVENT_NAME !== "pull_request") {
-    console.log(`OK dco: skip on ${process.env.GITHUB_EVENT_NAME}`);
+  const eventName = process.env.GITHUB_EVENT_NAME;
+  if (eventName && eventName !== "pull_request" && eventName !== "merge_group") {
+    console.log(`OK dco: skip on ${eventName}`);
     return;
   }
 

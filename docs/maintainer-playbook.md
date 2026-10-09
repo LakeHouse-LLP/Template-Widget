@@ -23,7 +23,9 @@ For Sen (and any future maintainers) reviewing community PRs on **public** LakeH
 ## Merge
 
 - Merge **commits only** (never squash/rebase-merge on GitHub).
-- Prefer small or stacked PRs ([CONTRIBUTING.md](../CONTRIBUTING.md)).
+- **Public** repos: use the **merge queue** on `main` ([merge-queue.md](./merge-queue.md)); required checks must run on `merge_group`.
+- **Private** templates: no Free-plan queue — manual bottom-up merge commits with up-to-date branch + green CI.
+- Prefer small or stacked PRs ([CONTRIBUTING.md](../CONTRIBUTING.md), [stacked-prs.md](./stacked-prs.md)).
 - Thank the contributor; all-contributors credit when appropriate (`.all-contributorsrc`).
 
 ## Hostile or spam PRs
