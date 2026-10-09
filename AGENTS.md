@@ -46,7 +46,8 @@ Read [docs/dynamic-ui.md](./docs/dynamic-ui.md). Example: a **PDF markup** publi
 
 - **ZERO COST** on GitHub Free.  
 - Public repos: **GitHub-hosted runners only**.  
-- Standalone site: Vercel free or GitHub Pages + custom domain from `org.json` (never `*.github.io` as the public hostname).
+- Standalone site: Vercel free or GitHub Pages + custom domain from `org.json` (never `*.github.io` as the public hostname).  
+- Vercel env vars: team **Shared** vars when a value spans projects; project vars only when unique. See [docs/deploy/vercel.md](./docs/deploy/vercel.md). Org canonical: `{owner}/.github` → `docs/deploy/vercel-env-vars.md`.
 
 ## Merge policy
 
@@ -64,7 +65,8 @@ Read [docs/dynamic-ui.md](./docs/dynamic-ui.md). Example: a **PDF markup** publi
 4. **Merge** into `Template-*` or org `.github`.  
 5. **Vendor** the real `@lakehouse/widget-sdk` or other monorepo packages.  
 6. **Push to an unexpected remote** (`npm run check:remote`).  
-7. **Hardcode the GitHub org slug**.
+7. **Hardcode the GitHub org slug**.  
+8. **Create, edit, or delete Vercel environment variables** (including `vercel env add` / `rm` / dashboard edits) without Sen’s **explicit** approval.
 
 ## Required local checks
 
