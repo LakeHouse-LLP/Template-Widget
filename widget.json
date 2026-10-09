@@ -68,12 +68,12 @@
     "forkFallback": true,
     "documentation": "docs/customization.md",
     "themeTokens": {
-      "accent": "#7DFFFF",
-      "bg": "#0b0f14",
-      "panel": "#121821",
-      "text": "#e8eef5",
-      "muted": "#9aa7b5",
-      "border": "#243041"
+      "accent": "--color-accent",
+      "bg": "--color-surface-canvas",
+      "panel": "--color-surface-panel",
+      "text": "--color-text-primary",
+      "muted": "--color-text-muted",
+      "border": "--color-border-default"
     },
     "layoutSlots": ["toolbar", "main", "sidebar", "status"],
     "featureFlags": {
@@ -95,7 +95,8 @@
     }
   },
   "engines": {
-    "lakehouse": ">=0.1.0 <1.0.0"
+    "lakehouse": ">=0.1.0 <1.0.0",
+    "designContract": ">=0.1.0 <1.0.0"
   },
   "icons": {
     "svg": "docs/media/logo-dark.svg"
@@ -120,6 +121,7 @@
     ],
     "doNotTouch": [
       "stubs/widget-sdk/",
+      "stubs/design-contract/",
       ".lakehouse/",
       ".github/workflows/"
     ],

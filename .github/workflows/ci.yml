@@ -78,6 +78,12 @@ jobs:
 
       - name: Widget contract (widget.json schema + host range)
         run: npm run check:widget
+
+      - name: Design contract range + default contrast
+        run: npm run check:design-contract
+
+      - name: No hardcoded design values in widget UI
+        run: npm run check:hardcoded-values
         env:
           LAKEHOUSE_HOST_VERSION: "0.1.0"
 

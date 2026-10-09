@@ -11,6 +11,8 @@ export type StandaloneOptions = {
   greeting?: string;
   title?: string;
   overlay?: UserOverlay;
+  /** design-contract theme id (default LakeHouse Studio). */
+  themeId?: string;
 };
 
 export function mountStandalone(options: StandaloneOptions = {}): () => void {
@@ -26,6 +28,7 @@ export function mountStandalone(options: StandaloneOptions = {}): () => void {
       return {
         title: options.title ?? "Hello Widget",
         overlay,
+        themeId: options.themeId,
       };
     },
   };

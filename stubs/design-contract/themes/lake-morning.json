@@ -1,0 +1,8 @@
+{
+  "id": "lake-morning",
+  "name": "Lake Morning",
+  "contractVersion": "0.1.0",
+  "colorScheme": "light",
+  "description": "Example light skin proving a full runtime reskin without rebuild. Not the brand default.",
+  "note": "Runtime copy lives in themes.js for the browser stub; keep in sync until the real package compiles DTCG JSON."
+}

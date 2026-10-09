@@ -27,8 +27,8 @@ Read [docs/dynamic-ui.md](./docs/dynamic-ui.md). Example: a **PDF markup** publi
 
 1. Fork under a plain name.  
 2. Edit `src/core/`, `src/entry/`, `apps/site/`, `widget.json` as needed.  
-3. Keep **dark mode only** and accent `#7DFFFF`.  
-4. Do **not** expand `stubs/widget-sdk/` or vendor the real SDK.  
+3. Keep brand default **LakeHouse Studio** (dark + accent token). User skins may differ — use `@lakehouse/design-contract`, never hardcode values in widget UI.  
+4. Do **not** expand `stubs/widget-sdk/` or `stubs/design-contract/`, or vendor those packages.  
 5. Bump **both** `widget.json` and `package.json` versions; add a changeset.  
 6. `npm ci && npm run check:all`  
 7. Load `dist/widget.js` + `widget.json` into the office.  
@@ -40,7 +40,7 @@ Read [docs/dynamic-ui.md](./docs/dynamic-ui.md). Example: a **PDF markup** publi
 
 ### Do not change (unless Sen asks)
 
-- `.lakehouse/`, workflow pins, release/OIDC wiring, `stubs/widget-sdk/` beyond TODO replacement, org secrets/settings
+- `.lakehouse/`, workflow pins, release/OIDC wiring, `stubs/widget-sdk/` / `stubs/design-contract/` beyond TODO replacement, org secrets/settings
 
 ## Cost and hosting
 
@@ -70,6 +70,11 @@ Read [docs/dynamic-ui.md](./docs/dynamic-ui.md). Example: a **PDF markup** publi
 7. **Push to an unexpected remote** (`npm run check:remote`).  
 8. **Hardcode the GitHub org slug**.  
 9. **Create, edit, or delete Vercel environment variables** (including `vercel env add` / `rm` / dashboard edits) without Sen’s **explicit** approval.
+
+## Design contract
+
+- Depend on `@lakehouse/design-contract` (placeholder stub until published). Declare `engines.designContract` in `widget.json`.  
+- Widget UI: semantic/component tokens only. Docs: [docs/architecture/design-contract.md](./docs/architecture/design-contract.md).
 
 ## Required local checks
 

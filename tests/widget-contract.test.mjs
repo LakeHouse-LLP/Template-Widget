@@ -3,6 +3,11 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, it } from "node:test";
 import { fileURLToPath } from "node:url";
+import {
+  CONTRACT_VERSION,
+  isContractCompatible,
+  listThemes,
+} from "@lakehouse/design-contract";
 import { isHostCompatible } from "@lakehouse/widget-sdk";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -28,10 +33,23 @@ describe("widget contract", () => {
     assert.equal(c.preference, "overlay");
     assert.equal(c.forkFallback, true);
     assert.ok(c.themeTokens?.accent);
+    assert.match(c.themeTokens.accent, /^--/);
     assert.ok(Array.isArray(c.layoutSlots) && c.layoutSlots.includes("main"));
     assert.equal(typeof c.featureFlags, "object");
     assert.ok(Array.isArray(c.toolbar?.actions));
     assert.ok(Array.isArray(c.extensionHooks) && c.extensionHooks.includes("onMount"));
+  });
+
+  it("declares designContract engine range compatible with the stub", () => {
+    const manifest = load("widget.json");
+    assert.ok(manifest.engines?.designContract);
+    assert.equal(
+      isContractCompatible(CONTRACT_VERSION, manifest.engines.designContract),
+      true,
+    );
+    const ids = listThemes().map((t) => t.id);
+    assert.ok(ids.includes("lakehouse-studio"));
+    assert.ok(ids.includes("lake-morning"));
   });
 
   it("engines.lakehouse accepts the default CI host version", () => {

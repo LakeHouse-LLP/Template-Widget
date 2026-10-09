@@ -1,10 +1,5 @@
 :root {
-  color-scheme: dark;
-  --lh-accent: #7dffff;
-  --shell-bg: #070a0e;
-  --shell-text: #e8eef5;
-  --shell-muted: #9aa7b5;
-  --shell-border: #243041;
+  font-family: var(--font-family-ui);
 }
 
 * {
@@ -16,54 +11,53 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
   background:
-    linear-gradient(165deg, #101824, var(--shell-bg) 50%),
-    var(--shell-bg);
-  color: var(--shell-text);
+    linear-gradient(165deg, var(--color-surface-panel), var(--color-surface-canvas) 50%),
+    var(--color-surface-canvas);
+  color: var(--color-text-primary);
 }
 
 .shell-header,
 .shell-footer {
-  padding: 1rem 1.25rem;
-  border-color: var(--shell-border);
+  padding: var(--space-lg) var(--space-xl);
+  border-color: var(--color-border-default);
 }
 
 .shell-header {
-  border-bottom: 1px solid var(--shell-border);
+  border-bottom: var(--size-hairline) solid var(--color-border-default);
 }
 
 .shell-brand {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  font-size: var(--font-size-caption);
+  letter-spacing: var(--font-letter-spacing-title);
   text-transform: uppercase;
-  color: var(--lh-accent);
+  color: var(--color-accent);
 }
 
 .shell-lead {
-  margin: 0.45rem 0 0;
-  max-width: 52rem;
-  color: var(--shell-muted);
-  line-height: 1.45;
+  margin: var(--space-xs) 0 0;
+  max-width: var(--size-shell-lead-max);
+  color: var(--color-text-muted);
+  line-height: var(--font-line-height-body);
 }
 
 .shell-main {
   flex: 1;
-  padding: 1rem;
+  padding: var(--space-lg);
 }
 
 .shell-widget {
-  min-height: 420px;
-  border: 1px solid var(--shell-border);
+  min-height: var(--size-shell-widget-min);
+  border: var(--size-hairline) solid var(--color-border-default);
   overflow: hidden;
 }
 
 .shell-footer {
-  border-top: 1px solid var(--shell-border);
-  color: var(--shell-muted);
-  font-size: 0.85rem;
+  border-top: var(--size-hairline) solid var(--color-border-default);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
 }
 
 code {
-  color: var(--lh-accent);
+  color: var(--color-accent);
 }

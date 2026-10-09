@@ -1,14 +1,18 @@
 import type { WidgetCustomization } from "./types.js";
 
-/** Defaults aligned with widget.json → customization (keep in sync). */
+/**
+ * Defaults aligned with widget.json → customization (keep in sync).
+ * themeTokens values are semantic CSS variable *names* from @lakehouse/design-contract
+ * (not raw colors). Host themes supply the values; overlays may override with concrete values.
+ */
 export const DEFAULT_CUSTOMIZATION: WidgetCustomization = {
   themeTokens: {
-    accent: "#7DFFFF",
-    bg: "#0b0f14",
-    panel: "#121821",
-    text: "#e8eef5",
-    muted: "#9aa7b5",
-    border: "#243041",
+    accent: "--color-accent",
+    bg: "--color-surface-canvas",
+    panel: "--color-surface-panel",
+    text: "--color-text-primary",
+    muted: "--color-text-muted",
+    border: "--color-border-default",
   },
   layoutSlots: ["toolbar", "main", "sidebar", "status"],
   featureFlags: {

@@ -6,12 +6,7 @@
     <title>LakeHouse Widget Preview (mock host)</title>
     <style>
       :root {
-        color-scheme: dark;
-        --lh-accent: #7dffff;
-        --lh-bg: #070a0e;
-        --lh-text: #e8eef5;
-        --lh-muted: #9aa7b5;
-        --lh-border: #243041;
+        font-family: var(--font-family-ui);
       }
       * {
         box-sizing: border-box;
@@ -19,61 +14,81 @@
       body {
         margin: 0;
         min-height: 100vh;
-        font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
         background:
-          linear-gradient(160deg, #0e1620, #070a0e 55%),
-          var(--lh-bg);
-        color: var(--lh-text);
+          linear-gradient(160deg, var(--color-surface-panel), var(--color-surface-canvas) 55%),
+          var(--color-surface-canvas);
+        color: var(--color-text-primary);
       }
       header {
-        padding: 1rem 1.25rem;
-        border-bottom: 1px solid var(--lh-border);
+        padding: var(--space-lg) var(--space-xl);
+        border-bottom: var(--size-hairline) solid var(--color-border-default);
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+        align-items: flex-end;
+        justify-content: space-between;
       }
       header h1 {
         margin: 0;
-        font-size: 1rem;
-        letter-spacing: 0.04em;
+        font-size: var(--font-size-body);
+        letter-spacing: var(--font-letter-spacing-label);
         text-transform: uppercase;
       }
       header p {
-        margin: 0.35rem 0 0;
-        color: var(--lh-muted);
-        font-size: 0.9rem;
+        margin: var(--space-2xs) 0 0;
+        color: var(--color-text-muted);
+        font-size: var(--font-size-small);
+      }
+      label {
+        display: grid;
+        gap: var(--space-2xs);
+        font-size: var(--font-size-caption);
+        color: var(--color-text-muted);
+        letter-spacing: var(--font-letter-spacing-caps);
+        text-transform: uppercase;
+      }
+      select {
+        font: inherit;
+        color: var(--color-text-primary);
+        background: var(--color-surface-panel);
+        border: var(--size-hairline) solid var(--color-border-default);
+        border-radius: var(--radius-control);
+        padding: var(--space-xs) var(--space-sm);
       }
       main {
         display: grid;
-        grid-template-columns: 1fr 280px;
-        gap: 1rem;
-        padding: 1rem;
-        min-height: calc(100vh - 5rem);
+        grid-template-columns: 1fr var(--size-preview-aside);
+        gap: var(--space-lg);
+        padding: var(--space-lg);
+        min-height: var(--size-preview-main-min);
       }
       iframe {
         width: 100%;
-        min-height: 420px;
-        border: 1px solid var(--lh-border);
-        background: #0b0f14;
+        min-height: var(--size-shell-widget-min);
+        border: var(--size-hairline) solid var(--color-border-default);
+        background: var(--color-surface-canvas);
       }
       aside {
-        border: 1px solid var(--lh-border);
-        padding: 0.85rem;
-        font-size: 0.85rem;
-        color: var(--lh-muted);
+        border: var(--size-hairline) solid var(--color-border-default);
+        padding: var(--space-md);
+        font-size: var(--font-size-small);
+        color: var(--color-text-muted);
       }
       aside h2 {
-        margin: 0 0 0.5rem;
-        color: var(--lh-accent);
-        font-size: 0.8rem;
-        letter-spacing: 0.06em;
+        margin: 0 0 var(--space-sm);
+        color: var(--color-accent);
+        font-size: var(--font-size-caption);
+        letter-spacing: var(--font-letter-spacing-caps);
         text-transform: uppercase;
       }
       #log {
         white-space: pre-wrap;
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-        font-size: 0.75rem;
-        max-height: 50vh;
+        font-family: var(--font-family-ui);
+        font-size: var(--font-size-caption);
+        max-height: var(--size-preview-log-max);
         overflow: auto;
       }
-      @media (max-width: 800px) {
+      @media (max-width: 50rem) {
         main {
           grid-template-columns: 1fr;
         }
@@ -82,10 +97,19 @@
   </head>
   <body>
     <header>
-      <h1>Mock LakeHouse host</h1>
-      <p>
-        Local preview harness — iframe sandbox + postMessage bridge. Not the production host.
-      </p>
+      <div>
+        <h1>Mock LakeHouse host</h1>
+        <p>
+          Local preview harness — iframe sandbox + postMessage bridge. Switch skins via the design contract.
+        </p>
+      </div>
+      <label>
+        Theme / skin
+        <select id="theme-select" aria-label="Theme or skin">
+          <option value="lakehouse-studio">LakeHouse Studio (default)</option>
+          <option value="lake-morning">Lake Morning (example skin)</option>
+        </select>
+      </label>
     </header>
     <main>
       <iframe id="widget-frame" title="Widget sandbox" sandbox="allow-scripts allow-same-origin"></iframe>
