@@ -21,6 +21,7 @@ Shared org defaults and the runbook live in the organization **`.github`** repos
 - Reusable workflow catalog and Action SHA pins: [`.lakehouse/pins.json`](../.lakehouse/pins.json)
 - Vercel env-var rule (canonical): `{owner}/.github` → `docs/deploy/vercel-env-vars.md` — per-repo application: [deploy/vercel.md](./deploy/vercel.md)
 - Merge queue preference (canonical): `{owner}/.github` → `docs/merge-queue.md` — per-repo application: [merge-queue.md](./merge-queue.md)
+- Design contract (canonical): `{owner}/.github` → `docs/architecture/design-contract.md` — widget application: [architecture/design-contract.md](./architecture/design-contract.md)
 
 Do not hardcode the GitHub org slug in workflows, docs, or badges. `npm run check:org-slug` enforces this (allowlist: `org.json`, changelogs).
 

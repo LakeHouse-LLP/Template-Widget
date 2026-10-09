@@ -1,7 +1,6 @@
 {
   "label": "Example designer persona",
   "themeTokens": {
-    "accent": "#7DFFFF",
     "panel": "#151c28"
   },
   "featureFlags": {

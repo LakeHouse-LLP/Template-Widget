@@ -14,7 +14,7 @@ LakeHouse widgets are built for **dynamic UI/UX**: the same public codebase shou
 
 | Point | Purpose |
 | --- | --- |
-| `themeTokens` | Dark-only brand tokens (`accent` `#7DFFFF`, surfaces, text) |
+| `themeTokens` | Maps onto design-contract **semantic** CSS vars (`--color-accent`, surfaces, text). Defaults are token names; overlays may override with concrete values. See [architecture/design-contract.md](./architecture/design-contract.md). |
 | `layoutSlots` | Named regions (`toolbar`, `main`, `sidebar`, `status`) |
 | `featureFlags` | Toggle optional UI/behavior |
 | `toolbar.actions` | Toolbar/action config (`id`, `label`, `enabled`) |
@@ -33,6 +33,8 @@ See [`overlays/example.user.json`](../overlays/example.user.json). Hosts pass th
 
 ## What agents must not do
 
-- Expand `stubs/widget-sdk/` into a real SDK  
+- Expand `stubs/widget-sdk/` or `stubs/design-contract/` into real packages (do not vendor)  
+- Hardcode colors/sizes/fonts in `src/`, `apps/site/`, or `preview/` (use semantic/component tokens)  
 - Change org settings/secrets, or merge `Template-*` PRs  
-- Light-mode themes (dark-only)
+
+Brand/marketing default stays **LakeHouse Studio** dark + accent token. **User skins may be light** (see example **Lake Morning**).

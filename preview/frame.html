@@ -10,14 +10,23 @@
       #widget-root {
         margin: 0;
         height: 100%;
-        background: #0b0f14;
+        background: var(--color-surface-canvas);
       }
     </style>
   </head>
   <body>
     <div id="widget-root"></div>
     <script type="module">
+      import {
+        applyTheme,
+        DEFAULT_THEME_ID,
+        getTheme,
+      } from "../stubs/design-contract/index.js";
       import widget from "../dist/widget.js";
+
+      const params = new URLSearchParams(location.search);
+      let themeId = params.get("theme") || DEFAULT_THEME_ID;
+      applyTheme(document, getTheme(themeId));
 
       const root = document.getElementById("widget-root");
       const bridge = {
@@ -34,7 +43,7 @@
           return () => window.removeEventListener("message", fn);
         },
         getSettings() {
-          return { title: "Hello Widget (preview)" };
+          return { title: "Hello Widget (preview)", themeId };
         },
         reportReady() {
           this.postMessage("widget.ready", { ok: true });
@@ -42,6 +51,12 @@
       };
 
       widget.mount({ root, bridge, inputs: { greeting: "Hello" } });
+
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data || data.source !== "lakehouse-host" || data.type !== "host.theme") return;
+        themeId = data.payload?.themeId || DEFAULT_THEME_ID;
+      });
     </script>
   </body>
 </html>

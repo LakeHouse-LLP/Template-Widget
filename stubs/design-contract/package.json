@@ -1,0 +1,16 @@
+{
+  "name": "@lakehouse/design-contract",
+  "version": "0.0.0-placeholder.0",
+  "description": "TODO(design-contract): Temporary local stub. Replace with the published @lakehouse/design-contract from Template-Monorepo packages/design-contract. Do not vendor or expand this into the real contract package.",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

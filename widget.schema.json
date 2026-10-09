@@ -121,11 +121,15 @@
     },
     "engines": {
       "type": "object",
-      "required": ["lakehouse"],
+      "required": ["lakehouse", "designContract"],
       "properties": {
         "lakehouse": {
           "type": "string",
           "description": "SemVer range of supported LakeHouse host versions"
+        },
+        "designContract": {
+          "type": "string",
+          "description": "SemVer range of @lakehouse/design-contract the widget accepts"
         }
       },
       "additionalProperties": false

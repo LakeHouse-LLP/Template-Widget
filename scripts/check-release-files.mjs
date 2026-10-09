@@ -30,6 +30,8 @@ const required = [
   "docs/deploy/vercel.md",
   "docs/deploy/env-vars.md",
   "docs/merge-queue.md",
+  "docs/architecture/design-contract.md",
+  "stubs/design-contract/package.json",
   "NOTICE",
 ];
 

@@ -1,6 +1,8 @@
-import type { ThemeTokens } from "./types.js";
-
-export function ensureStyles(tokens: ThemeTokens): void {
+/**
+ * Structural widget styles — semantic/component tokens only (no raw colors/sizes/fonts).
+ * Values come from @lakehouse/design-contract themes applied as CSS custom properties.
+ */
+export function ensureStyles(): void {
   if (typeof document === "undefined") return;
   let style = document.getElementById("lh-widget-styles") as HTMLStyleElement | null;
   if (!style) {
@@ -10,29 +12,27 @@ export function ensureStyles(tokens: ThemeTokens): void {
   }
   style.textContent = `
 :root {
-  color-scheme: dark;
-  --lh-accent: ${tokens.accent};
-  --lh-bg: ${tokens.bg};
-  --lh-panel: ${tokens.panel};
-  --lh-text: ${tokens.text};
-  --lh-muted: ${tokens.muted};
-  --lh-border: ${tokens.border};
-  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-family: var(--font-family-ui);
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--lh-bg); color: var(--lh-text); }
+body {
+  margin: 0;
+  background: var(--color-surface-canvas);
+  color: var(--color-text-primary);
+}
 .lh-widget {
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   background:
-    radial-gradient(120% 80% at 10% 0%, color-mix(in srgb, var(--lh-accent) 18%, transparent), transparent 55%),
-    var(--lh-panel);
-  border: 1px solid var(--lh-border);
+    var(--comp-shell-gradient),
+    var(--color-surface-panel);
+  border: var(--size-hairline) solid var(--color-border-default);
+  border-radius: var(--radius-control);
 }
 .lh-widget[data-sidebar="true"] {
-  grid-template-columns: 1fr 200px;
+  grid-template-columns: 1fr var(--size-sidebar);
   grid-template-areas:
     "toolbar toolbar"
     "main sidebar"
@@ -44,23 +44,58 @@ body { margin: 0; background: var(--lh-bg); color: var(--lh-text); }
     "main"
     "status";
 }
-.lh-slot-toolbar { grid-area: toolbar; display: flex; gap: 0.5rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--lh-border); flex-wrap: wrap; }
-.lh-slot-main { grid-area: main; padding: 1.25rem; }
-.lh-slot-sidebar { grid-area: sidebar; padding: 1rem; border-left: 1px solid var(--lh-border); color: var(--lh-muted); font-size: 0.9rem; }
-.lh-slot-status { grid-area: status; padding: 0.45rem 1rem; border-top: 1px solid var(--lh-border); color: var(--lh-muted); font-size: 0.8rem; }
-.lh-slot-main h1 { margin: 0 0 0.35rem; font-size: 1.35rem; letter-spacing: 0.02em; }
-.lh-slot-main p { margin: 0 0 1rem; color: var(--lh-muted); line-height: 1.45; }
+.lh-slot-toolbar {
+  grid-area: toolbar;
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: var(--size-hairline) solid var(--color-border-default);
+  flex-wrap: wrap;
+}
+.lh-slot-main { grid-area: main; padding: var(--space-xl); }
+.lh-slot-sidebar {
+  grid-area: sidebar;
+  padding: var(--space-lg);
+  border-left: var(--size-hairline) solid var(--color-border-default);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+}
+.lh-slot-status {
+  grid-area: status;
+  padding: var(--space-xs) var(--space-lg);
+  border-top: var(--size-hairline) solid var(--color-border-default);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+}
+.lh-slot-main h1 {
+  margin: 0 0 var(--space-2xs);
+  font-size: var(--font-size-title);
+  letter-spacing: var(--font-letter-spacing-title);
+}
+.lh-slot-main p {
+  margin: 0 0 var(--space-lg);
+  color: var(--color-text-muted);
+  line-height: var(--font-line-height-body);
+  font-size: var(--font-size-body);
+}
 .lh-widget button {
   appearance: none;
-  border: 1px solid color-mix(in srgb, var(--lh-accent) 55%, var(--lh-border));
-  background: color-mix(in srgb, var(--lh-accent) 16%, var(--lh-panel));
-  color: var(--lh-text);
-  padding: 0.45rem 0.8rem;
+  border: var(--size-hairline) solid var(--comp-button-border);
+  background: var(--comp-button-bg);
+  color: var(--comp-button-fg);
+  padding: var(--space-xs) var(--space-md);
   cursor: pointer;
   font: inherit;
+  border-radius: var(--radius-control);
 }
-.lh-widget button:hover { border-color: var(--lh-accent); color: var(--lh-accent); }
-.lh-widget button:focus-visible { outline: 2px solid var(--lh-accent); outline-offset: 2px; }
-.lh-widget button[disabled] { opacity: 0.45; cursor: not-allowed; }
+.lh-widget button:hover {
+  border-color: var(--comp-button-hover-border);
+  color: var(--comp-button-hover-fg);
+}
+.lh-widget button:focus-visible {
+  outline: var(--size-focus-ring) solid var(--comp-focus-ring);
+  outline-offset: var(--size-focus-ring-offset);
+}
+.lh-widget button[disabled] { opacity: var(--state-disabled-opacity); cursor: not-allowed; }
 `.trim();
 }

@@ -82,6 +82,11 @@ function main() {
     process.exit(1);
   }
 
+  if (!manifest.engines?.designContract) {
+    console.error("check-widget: engines.designContract is required");
+    process.exit(1);
+  }
+
   const pkg = loadJson("package.json");
   if (pkg.version !== manifest.version) {
     console.error(

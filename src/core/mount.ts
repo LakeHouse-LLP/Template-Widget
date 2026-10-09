@@ -1,3 +1,9 @@
+import {
+  applyTheme,
+  applyThemeTokenOverrides,
+  DEFAULT_THEME_ID,
+  getTheme,
+} from "@lakehouse/design-contract";
 import type { WidgetMountContext } from "@lakehouse/widget-sdk";
 import { applyOverlay } from "./apply-overlay.js";
 import { ensureStyles } from "./styles.js";
@@ -14,6 +20,8 @@ function escapeHtml(value: string): string {
 type HostSettings = {
   title?: string;
   overlay?: UserOverlay;
+  /** Active design-contract theme id (host injects; preview can switch). */
+  themeId?: string;
 };
 
 /**
@@ -27,7 +35,11 @@ export function mountCore(ctx: WidgetMountContext): () => void {
   const settings = bridge.getSettings<HostSettings>();
   const customization = applyOverlay(settings.overlay ?? null);
 
-  ensureStyles(customization.themeTokens);
+  const themeId = settings.themeId?.trim() || DEFAULT_THEME_ID;
+  const theme = getTheme(themeId);
+  applyTheme(document, theme);
+  applyThemeTokenOverrides(document, customization.themeTokens);
+  ensureStyles();
 
   const greeting =
     typeof inputs.greeting === "string" && inputs.greeting.trim()
@@ -52,12 +64,12 @@ export function mountCore(ctx: WidgetMountContext): () => void {
     .join("");
 
   root.innerHTML = `
-    <section class="lh-widget" data-widget="hello" data-sidebar="${showSidebar}">
+    <section class="lh-widget" data-widget="hello" data-sidebar="${showSidebar}" data-theme="${escapeHtml(theme.id)}">
       <div class="lh-slot-toolbar" data-slot="toolbar">${actionsHtml}</div>
       <div class="lh-slot-main" data-slot="main">
         <h1>${escapeHtml(String(title))}</h1>
         <p>${escapeHtml(greeting)} from LakeHouse Studio. One codebase → public site, in-app widget, and agent customization reference.</p>
-        <p>Accent token <code>${escapeHtml(customization.themeTokens.accent)}</code> · slots: ${escapeHtml(customization.layoutSlots.join(", "))}</p>
+        <p>Theme <code data-theme-label>${escapeHtml(theme.name)}</code> · accent token <code>--color-accent</code> · slots: ${escapeHtml(customization.layoutSlots.join(", "))}</p>
       </div>
       ${
         showSidebar
@@ -74,6 +86,20 @@ export function mountCore(ctx: WidgetMountContext): () => void {
 
   bridge.postMessage("hook", { name: "onMount", at: new Date().toISOString() });
 
+  const onTheme = bridge.onMessage("host.theme", (payload) => {
+    const nextId =
+      payload && typeof payload === "object" && "themeId" in payload
+        ? String((payload as { themeId?: string }).themeId ?? DEFAULT_THEME_ID)
+        : DEFAULT_THEME_ID;
+    const nextTheme = getTheme(nextId);
+    applyTheme(document, nextTheme);
+    applyThemeTokenOverrides(document, customization.themeTokens);
+    const section = root.querySelector(".lh-widget");
+    if (section) section.setAttribute("data-theme", nextTheme.id);
+    const label = root.querySelector("[data-theme-label]");
+    if (label) label.textContent = nextTheme.name;
+  });
+
   const onClick = (event: Event) => {
     const target = event.target as HTMLElement | null;
     const action = target?.closest<HTMLButtonElement>("[data-action]")?.dataset.action;
@@ -87,6 +113,7 @@ export function mountCore(ctx: WidgetMountContext): () => void {
   bridge.reportReady();
 
   return () => {
+    onTheme();
     bridge.postMessage("hook", { name: "onUnmount" });
     root.removeEventListener("click", onClick);
     root.replaceChildren();

@@ -16,4 +16,4 @@ npm run build
 npm run site:serve
 ```
 
-Open `http://127.0.0.1:4173/apps/site/` — try `?overlay=example` for a per-user overlay demo.
+Open `http://127.0.0.1:4173/apps/site/` — try `?overlay=example` for a per-user overlay demo, or `?theme=lake-morning` for the example light skin ([design-contract](../../docs/architecture/design-contract.md)).
