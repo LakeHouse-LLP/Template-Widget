@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Template-Widget rework: `widget.json` + schema, hello-world core/entries, mock host `preview/`, contract tests, placeholder `@lakehouse/widget-sdk` stub, release assets for loadable bundle; retired name Template-OpenSource.
 - Three-mode dynamic UI/UX: shared `src/core`, host entry, thin `apps/site` shell, declared customization points (theme/slots/flags/toolbar/hooks), overlays preferred over forking; PDF markup example in docs.
 - Vercel env-var rule for standalone site deploy (`docs/deploy/`), linking org `{owner}/.github` canonical doc; AGENTS.md forbids unapproved `vercel env` mutations.
+- Merge queue preference for public repos: ruleset on `main`, `merge_group` CI triggers, stacked-PR enqueue flow; private templates stay manual merge commits ([docs/merge-queue.md](./docs/merge-queue.md)).
 
 ### Fixed
 

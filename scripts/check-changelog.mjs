@@ -45,7 +45,11 @@ function main() {
   }
 
   // Local non-PR runs: only warn unless --strict
-  const strict = process.argv.includes("--strict") || process.env.GITHUB_EVENT_NAME === "pull_request";
+  const eventName = process.env.GITHUB_EVENT_NAME;
+  const strict =
+    process.argv.includes("--strict") ||
+    eventName === "pull_request" ||
+    eventName === "merge_group";
   const files = changedFiles();
   if (files.length === 0 && !strict) {
     console.log("OK changelog: no changed files detected (local)");

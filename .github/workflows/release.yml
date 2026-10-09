@@ -8,6 +8,7 @@ on:
     tags:
       - "v*"
   pull_request:
+  merge_group:
   workflow_dispatch:
     inputs:
       dry_run:
@@ -25,7 +26,7 @@ concurrency:
 jobs:
   validate:
     name: validate
-    if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)
+    if: github.event_name == 'pull_request' || github.event_name == 'merge_group' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

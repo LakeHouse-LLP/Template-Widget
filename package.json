@@ -49,13 +49,14 @@
     "check:remote": "node scripts/check-wrong-remote.mjs",
     "check:tier": "node scripts/check-tier.mjs",
     "check:runners": "node scripts/check-no-self-hosted.mjs",
+    "check:merge-group": "node scripts/check-merge-group.mjs",
     "check:org-slug": "node scripts/check-no-hardcoded-org.mjs",
     "check:pins": "node scripts/check-action-pins.mjs",
     "check:org": "node scripts/check-org-domain.mjs",
     "check:changelog": "node scripts/check-changelog.mjs",
     "check:dco": "node scripts/check-dco.mjs",
     "check:gitleaks": "node scripts/run-gitleaks.mjs",
-    "check:all": "npm run check:org && npm run check:remote && npm run check:tier && npm run check:runners && npm run check:org-slug && npm run check:pins && npm run readme:check && npm run citation:check && npm run release:validate && npm run check:discoverability && npm run check:widget && npm run build && npm test && npm run check:gitleaks"
+    "check:all": "npm run check:org && npm run check:remote && npm run check:tier && npm run check:runners && npm run check:merge-group && npm run check:org-slug && npm run check:pins && npm run readme:check && npm run citation:check && npm run release:validate && npm run check:discoverability && npm run check:widget && npm run build && npm test && npm run check:gitleaks"
   },
   "license": "UNLICENSED",
   "dependencies": {

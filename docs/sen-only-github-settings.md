@@ -13,7 +13,14 @@ Agents and contributors must not change these via API, UI, or automation unless 
 - [ ] Immutable releases on
 - [ ] Tag rulesets for release tags (`v*`)
 - [ ] Private vulnerability reporting on
-- [ ] Merge commits only (squash/rebase off)
+- [ ] Merge commits only (squash/rebase off) in repo Settings → General → Pull Requests
+- [ ] **Merge queue on `main`** (public repos only — Free plan; see [merge-queue.md](./merge-queue.md)):
+  - [ ] Rulesets → New branch ruleset → target `main`
+  - [ ] Enable **Require merge queue**
+  - [ ] Allowed merge method: **Merge commit** only (no squash / rebase)
+  - [ ] Max group size **5**; merge group wait timer **2–5 minutes** (small-org batching without long idle)
+  - [ ] Require status checks that also run on `merge_group` (ci, dco, codeql, etc.)
+- [ ] Private templates: **no** merge queue on Free — keep manual bottom-up merge commits + require up-to-date branch + green CI
 - [ ] npm **OIDC trusted publishing** configured for packages (no long-lived npm tokens)
 - [ ] Seed **3–5** `good first issue` / `help wanted` issues ([starter-issues.md](./starter-issues.md))
 - [ ] Optional: Hacktoberfest topic (opt-in per year — [contributor-listings.md](./contributor-listings.md))
@@ -24,7 +31,7 @@ Agents and contributors must not change these via API, UI, or automation unless 
 
 - Repository **visibility** changes
 - Org/repo **secrets**, **variables**, and **rulesets**
-- Approving merges into `Template-*` and `.github`
+- Approving merges / **enqueueing** the merge queue into `Template-*` and `.github`
 - Publishing draft GitHub Releases
 - Uploading final **brand** assets
 - Vercel env var create/edit/delete (shared or project) unless an agent is given explicit in-band approval

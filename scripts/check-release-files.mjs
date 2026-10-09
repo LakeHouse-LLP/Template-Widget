@@ -29,6 +29,7 @@ const required = [
   "overlays/example.user.json",
   "docs/deploy/vercel.md",
   "docs/deploy/env-vars.md",
+  "docs/merge-queue.md",
   "NOTICE",
 ];
 

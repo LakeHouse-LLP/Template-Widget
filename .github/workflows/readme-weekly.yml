@@ -6,6 +6,7 @@ on:
     - cron: "0 8 * * 1"
   workflow_dispatch:
   pull_request:
+  merge_group:
 
 permissions:
   contents: read
@@ -53,7 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Open PR when README changed
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && github.event_name != 'merge_group'
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           commit-message: "docs: regenerate README AUTO blocks"

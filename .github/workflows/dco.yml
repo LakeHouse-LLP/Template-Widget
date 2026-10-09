@@ -3,6 +3,7 @@ name: dco
 
 on:
   pull_request:
+  merge_group:
 
 permissions:
   contents: read

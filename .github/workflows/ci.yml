@@ -3,6 +3,7 @@ name: ci
 
 on:
   pull_request:
+  merge_group:
   push:
     branches: [main]
   workflow_dispatch:
@@ -47,6 +48,9 @@ jobs:
       - name: No self-hosted runners
         run: npm run check:runners
 
+      - name: merge_group triggers on required PR workflows
+        run: npm run check:merge-group
+
       - name: README AUTO freshness
         run: npm run readme:check
 
@@ -84,7 +88,7 @@ jobs:
         run: npm test
 
       - name: Changelog policy
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
         run: npm run check:changelog -- --strict
 
   gitleaks:
