@@ -18,25 +18,28 @@ permissions: {}
 
 jobs:
   welcome:
+    # Bots (Dependabot, renovate, etc.) are not first-time human contributors.
+    if: ${{ !endsWith(github.actor, '[bot]') }}
     runs-on: ubuntu-latest
     permissions:
       issues: write
       pull-requests: write
     steps:
       - name: First interaction
-        # No checkout step — comment only (safe with pull_request_target).
+        # No checkout step : comment only (safe with pull_request_target).
+        # first-interaction v3 requires snake_case input names.
         uses: actions/first-interaction@1c4688942c71f71d4f5502a26ea67c331730fa4d # v3.1.0
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: |
-            Thanks for opening an issue with **LakeHouse Studio** — welcome!
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          issue_message: |
+            Thanks for opening an issue with **LakeHouse Studio**. Welcome!
 
             Please skim [CONTRIBUTING.md](https://github.com/${{ github.repository }}/blob/main/CONTRIBUTING.md) and [SUPPORT.md](https://github.com/${{ github.repository }}/blob/main/SUPPORT.md).
             Looking for a place to start? Browse issues labeled `good first issue` or `help wanted`.
 
             Questions fit better in **Discussions** (Q&A) when enabled.
-          pr-message: |
-            Thanks for your first pull request — welcome to **LakeHouse Studio**!
+          pr_message: |
+            Thanks for your first pull request. Welcome to **LakeHouse Studio**!
 
             A few reminders from [CONTRIBUTING.md](https://github.com/${{ github.repository }}/blob/main/CONTRIBUTING.md):
             - Keep the PR focused; use the PR template (including the Stack section if needed)

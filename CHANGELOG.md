@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+
+- Continuous self-improvement house rule: AGENTS.md close-out, [docs/lessons.md](./docs/lessons.md) log, PR template **What did we learn?** section.
+
+
 - Initial LakeHouse-LLP public open-source template scaffold (CI, OpenSSF Scorecard, CodeQL, DCO, gitleaks, README autogen, tier and runner guards).
 - `.lakehouse/org.json` identity (orgName / brand / packageScope / domain) and `.lakehouse/pins.json` action + reusable-workflow catalog.
 - Org-slug lint (`check:org-slug`), action-pin check (`check:pins`), and CITATION.cff generation from org.json.
@@ -29,6 +33,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Design contract (widget side): `@lakehouse/design-contract` placeholder stub, semantic/component tokens only, `engines.designContract`, hardcoded-values lint, preview theme switch (LakeHouse Studio / Lake Morning).
 
 ### Fixed
+
+- Dependabot PRs: skip strict changelog and `changeset status` when `github.actor` is `dependabot[bot]`; apply `skip-changelog` in Dependabot config; skip welcome for bot actors.
+- Dependabot CI skips also match `pull_request.user.login` so rebases by agents still pass.
+- Changesets config: resolve custom changelog via `../scripts/changeset-changelog.mjs` (path is relative to `.changeset/`, required for `@changesets/cli` 3.x).
+- Main CI: pin `changesets/action` to v1.5.3 while `@changesets/cli` stays on v2 (action v2 requires CLI v3).
+- Discoverability strict mode no longer fails while the GitHub description is still the TEMPLATE placeholder (Sen-only UI for description/topics).
+- Welcome workflow: use snake_case inputs for `actions/first-interaction` v3 (`issue_message` / `pr_message` / `repo_token`).
+
 
 - Remote URL parsing avoids host substring checks (CodeQL).
 - Lychee config uses `include_mail = false` (CLI no longer accepts `--exclude-mail`).
