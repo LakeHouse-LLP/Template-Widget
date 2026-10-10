@@ -1,0 +1,33 @@
+# Lessons log
+
+Short dated notes from agents and humans. After each task, capture friction here when it is not fixed in the same PR (see [AGENTS.md](../AGENTS.md) Continuous self-improvement).
+
+**Promotion rule:** Any lesson that comes up repeatedly gets promoted to a house rule, a script, or a CI check. Mark that entry `promoted` and point at the place it landed.
+
+Status values: `open` | `fixed` | `promoted`
+
+## Entries
+
+### 2026-10-10 - continuous self-improvement house rule
+
+| | |
+| --- | --- |
+| **Lesson** | Without an explicit close-out step, agents finish the feature and skip recording friction, so the same CI and process footguns return on the next stack. |
+| **Action** | Added AGENTS.md continuous self-improvement rule, this log, and a PR template **What did we learn?** section. |
+| **Status** | `promoted` (AGENTS.md + PR template + this file) |
+
+### 2026-10-09 - changesets/action v2 vs CLI v2
+
+| | |
+| --- | --- |
+| **Lesson** | `changesets/action` v2 requires Changesets CLI v3. Pinning action v2 while `@changesets/cli` is still on v2 breaks `version-pr` on `main` after merge. |
+| **Action** | Prefer keeping pins.json and the workflow SHA in lockstep with the installed CLI major; draft fix tracked as PR #14 (`cursor/main-ci-fixes-d9d4`) if still open. |
+| **Status** | `open` |
+
+### 2026-10-09 - first-interaction v3 input names
+
+| | |
+| --- | --- |
+| **Lesson** | `actions/first-interaction` v3 expects snake_case inputs (`issue_message`, `pr_message`, `repo_token`). Kebab-case names fail the welcome workflow. |
+| **Action** | Use snake_case in `.github/workflows/welcome.yml`; covered in the same main-CI fix PR when present. |
+| **Status** | `open` |
