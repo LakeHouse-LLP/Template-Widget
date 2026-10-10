@@ -88,6 +88,16 @@ Follow `{owner}/.github/brand/WRITING-STYLE.md` (summary here; CI: `npm run chec
 - Name: **LakeHouse** / **LakeHouse Studio** only (never "Lakehouse" or "Lake House").
 - Never mention clients, client projects, or any employer-firm content.
 
+## Continuous self-improvement
+
+After **each** task (before you consider the PR done):
+
+1. Note any friction (wrong assumptions, missing docs, flaky CI, confusing scripts, copy-lint surprises, Sen-only gates hit by mistake).
+2. **Either** fix that friction in the **same** PR (preferred when small and in-scope), **or** append a short dated entry to [docs/lessons.md](./docs/lessons.md) with lesson, action, and status (`open` / `fixed` / `promoted`).
+3. Fill the PR template **What did we learn?** section (link the lessons.md entry when you logged one).
+
+Lessons that repeat get **promoted** to a house rule (here or CONTRIBUTING), a script, or a CI check. Do not let the same footgun stay as a one-off note.
+
 ## Required local checks
 
 ```bash
