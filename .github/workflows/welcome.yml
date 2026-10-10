@@ -18,6 +18,8 @@ permissions: {}
 
 jobs:
   welcome:
+    # Bots (Dependabot, renovate, etc.) are not first-time human contributors.
+    if: ${{ !endsWith(github.actor, '[bot]') }}
     runs-on: ubuntu-latest
     permissions:
       issues: write

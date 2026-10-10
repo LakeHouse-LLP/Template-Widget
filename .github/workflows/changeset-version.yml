@@ -39,13 +39,20 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Validate changesets config (PR / merge queue)
+      - name: Validate release files and pins (PR / merge queue)
         if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
-        env:
-          BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref }}
         run: |
           npm run release:validate
           npm run check:pins
+
+      - name: Require changesets when packages change (PR / merge queue)
+        # Dependabot only touches lockfile/manifests; no release changeset expected.
+        if: >
+          (github.event_name == 'pull_request' || github.event_name == 'merge_group')
+          && github.actor != 'dependabot[bot]'
+        env:
+          BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref }}
+        run: |
           # Stacked PRs are not based on main — compare against the PR / merge-group base.
           # merge_group.base_ref is refs/heads/main — strip refs/heads/ when present.
           BASE_REF="${BASE_REF#refs/heads/}"

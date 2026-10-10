@@ -9,6 +9,7 @@ updates:
     labels:
       - dependencies
       - github-actions
+      - skip-changelog
     commit-message:
       prefix: ci
       include: scope
@@ -22,6 +23,7 @@ updates:
     labels:
       - dependencies
       - npm
+      - skip-changelog
     commit-message:
       prefix: chore
       include: scope
