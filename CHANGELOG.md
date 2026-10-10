@@ -35,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Dependabot PRs: skip strict changelog and `changeset status` when `github.actor` is `dependabot[bot]`; apply `skip-changelog` in Dependabot config; skip welcome for bot actors.
+- Dependabot CI skips also match `pull_request.user.login` so rebases by agents still pass.
 - Changesets config: resolve custom changelog via `../scripts/changeset-changelog.mjs` (path is relative to `.changeset/`, required for `@changesets/cli` 3.x).
 - Main CI: pin `changesets/action` to v1.5.3 while `@changesets/cli` stays on v2 (action v2 requires CLI v3).
 - Discoverability strict mode no longer fails while the GitHub description is still the TEMPLATE placeholder (Sen-only UI for description/topics).

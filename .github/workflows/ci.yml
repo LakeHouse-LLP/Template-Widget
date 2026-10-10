@@ -97,10 +97,11 @@ jobs:
         run: npm test
 
       - name: Changelog policy
-        # Dependabot dependency bumps are labeled skip-changelog; also skip by actor.
+        # Dependabot bumps: skip by PR author (survives human/bot rebases) or actor.
         if: >
           (github.event_name == 'pull_request' || github.event_name == 'merge_group')
           && github.actor != 'dependabot[bot]'
+          && github.event.pull_request.user.login != 'dependabot[bot]'
         run: npm run check:changelog -- --strict
 
   gitleaks:
