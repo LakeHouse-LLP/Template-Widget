@@ -34,6 +34,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Main CI: pin `changesets/action` to v1.5.3 while `@changesets/cli` stays on v2 (action v2 requires CLI v3).
+- Discoverability strict mode no longer fails while the GitHub description is still the TEMPLATE placeholder (Sen-only UI for description/topics).
+- Welcome workflow: use snake_case inputs for `actions/first-interaction` v3 (`issue_message` / `pr_message` / `repo_token`).
+
+
 - Remote URL parsing avoids host substring checks (CodeQL).
 - Lychee config uses `include_mail = false` (CLI no longer accepts `--exclude-mail`).
 - Dependency-review Action deferred until the owner enables Dependency graph (agents do not change settings).

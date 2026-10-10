@@ -45,8 +45,9 @@
       "sha": "5f6978faf089d4d20b00c7766989d076bb2fc7f1"
     },
     "changesets/action": {
-      "tag": "v2.1.2",
-      "sha": "ae32849d5ba541f9ae29e40e22a623bc13562f51"
+      "tag": "v1.5.3",
+      "sha": "e0145edc7d9d8679003495b11f87bd8ef63c0cba",
+      "note": "Pinned to v1 while @changesets/cli remains on v2 (action v2 requires CLI v3)."
     },
     "actions/attest-build-provenance": {
       "tag": "v4.2.2",

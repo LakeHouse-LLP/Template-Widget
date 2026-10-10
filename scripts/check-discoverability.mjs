@@ -3,7 +3,8 @@
  * CI check: README keyword paragraph + GitHub description/topics standard.
  * Description/topics are read via GitHub API (GITHUB_TOKEN). Agents never set them.
  *
- * DISCOVERABILITY_STRICT=1 (e.g. on main) fails when GitHub metadata mismatches.
+ * DISCOVERABILITY_STRICT=1 (e.g. on main) fails when GitHub metadata mismatches,
+ * unless the repo description is still the TEMPLATE placeholder (Sen-only UI pending).
  * On PRs, metadata mismatches warn so Sen can apply topics without blocking drafts.
  */
 import { readFileSync, existsSync } from "node:fs";
@@ -185,11 +186,14 @@ async function main() {
 
   let metaErrors = [];
   let metaWarnings = [];
+  let metaPending = false;
   try {
     const meta = await fetchRepoMeta(owner, repo, token);
     const result = checkTopicsAndDescription(cfg, meta);
     metaErrors = result.errors;
     metaWarnings = result.warnings;
+    // Agents must not edit repo Settings. TEMPLATE placeholder means Sen UI pending.
+    metaPending = /^\s*⚠?\s*TEMPLATE\b/i.test(meta.description || "");
     console.log(
       `discoverability: GitHub description=${JSON.stringify(meta.description)} topics=${meta.topics.length} homepage=${meta.homepage || "(empty)"}`,
     );
@@ -206,12 +210,14 @@ async function main() {
   if (readmeErrors.length) process.exit(1);
 
   if (metaErrors.length) {
-    if (strict) {
-      console.error("discoverability: STRICT mode — GitHub metadata must match standard");
+    if (strict && !metaPending) {
+      console.error("discoverability: STRICT mode - GitHub metadata must match standard");
       process.exit(1);
     }
     console.warn(
-      "discoverability: GitHub description/topics not yet compliant (Sen-only UI). README check passed; not failing this non-strict run.",
+      metaPending
+        ? "discoverability: GitHub description still TEMPLATE placeholder (Sen-only UI). README OK; not failing until Sen sets description + topics."
+        : "discoverability: GitHub description/topics not yet compliant (Sen-only UI). README check passed; not failing this non-strict run.",
     );
   } else {
     console.log("OK discoverability: GitHub description + topics match standard");
