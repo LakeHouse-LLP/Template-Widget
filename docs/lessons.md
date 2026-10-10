@@ -28,6 +28,6 @@ Status values: `open` | `fixed` | `promoted`
 
 | | |
 | --- | --- |
-| **Lesson** | `actions/first-interaction` v3 expects snake_case inputs (`issue_message`, `pr_message`, `repo_token`). Kebab-case names fail the welcome workflow. |
-| **Action** | Use snake_case in `.github/workflows/welcome.yml`; covered in the same main-CI fix PR when present. |
-| **Status** | `open` |
+| **Lesson** | `actions/first-interaction` v3 expects snake_case inputs (`issue_message`, `pr_message`, `repo_token`). Kebab-case names fail the welcome workflow. `pull_request_target` runs the workflow file from the **base** branch, so a PR cannot green its own welcome check until main has the fix. |
+| **Action** | Ship snake_case `welcome.yml` on the continuous-self-improvement PR (and/or main-ci-fixes #14) so the next merge to main cures it. |
+| **Status** | `fixed` (workflow on this branch; base-branch check stays red until merge) |
