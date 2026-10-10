@@ -39,3 +39,12 @@ Status values: `open` | `fixed` | `promoted`
 | **Lesson** | Dependabot PRs fail `guards` (`check:changelog --strict`) and `version-pr` (`changeset status --since=origin/main`) because they change packages without a CHANGELOG/changeset or `skip-changelog` label. |
 | **Action** | Skip those steps when `github.actor == dependabot[bot]`, apply `skip-changelog` in `.github/dependabot.yml`, and skip the welcome job for `*[bot]` actors. |
 | **Status** | `fixed` (this PR) |
+
+### 2026-10-10 - skip-changelog label missing on fresh repos
+
+| | |
+| --- | --- |
+| **Lesson** | `.github/labels.yml` declares `skip-changelog`, but the label is not present on GitHub until synced. Agents get 403 creating labels, so a workflow-only PR cannot rely on that label for `check:changelog`. |
+| **Action** | Touch CHANGELOG.md (Unreleased) when the label is missing; prefer syncing labels from labels.yml (Sen) so Dependabot and agents can use `skip-changelog`. |
+| **Status** | `open` |
+
