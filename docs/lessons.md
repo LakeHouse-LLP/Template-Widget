@@ -56,3 +56,11 @@ Status values: `open` | `fixed` | `promoted`
 | **Action** | Fix the path before merging `@changesets/cli` 3.x; verify with `npx changeset version --snapshot` (do not commit the snapshot). |
 | **Status** | `fixed` (this PR) |
 
+### 2026-10-10 - README AUTO stale after remote rename
+
+| | |
+| --- | --- |
+| **Lesson** | After the GitHub remote name changed to `Template-LakeHouse-Widget`, `readme:check` failed until `npm run readme:gen` refreshed the AUTO Repository row. |
+| **Action** | Run `readme:gen` in the same PR when guards fail on AUTO freshness after renames. |
+| **Status** | `fixed` (this PR) |
+
