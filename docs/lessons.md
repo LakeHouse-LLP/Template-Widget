@@ -22,7 +22,7 @@ Status values: `open` | `fixed` | `promoted`
 | --- | --- |
 | **Lesson** | `changesets/action` v2 requires Changesets CLI v3. Pinning action v2 while `@changesets/cli` is still on v2 breaks `version-pr` on `main` after merge. |
 | **Action** | Prefer keeping pins.json and the workflow SHA in lockstep with the installed CLI major; fixed on main via #14. |
-| **Status** | `fixed` (#14) |
+| **Status** | `fixed` (#14 pinned v1 for CLI v2; upgraded to action v2 with CLI 3 in #13) |
 
 ### 2026-10-09 - first-interaction v3 input names
 
