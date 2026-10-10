@@ -47,9 +47,11 @@ jobs:
 
       - name: Require changesets when packages change (PR / merge queue)
         # Dependabot only touches lockfile/manifests; no release changeset expected.
+        # Prefer PR author so rebases by humans/agents still skip.
         if: >
           (github.event_name == 'pull_request' || github.event_name == 'merge_group')
           && github.actor != 'dependabot[bot]'
+          && github.event.pull_request.user.login != 'dependabot[bot]'
         env:
           BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref }}
         run: |
