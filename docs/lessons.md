@@ -48,3 +48,11 @@ Status values: `open` | `fixed` | `promoted`
 | **Action** | Touch CHANGELOG.md (Unreleased) when the label is missing; prefer syncing labels from labels.yml (Sen) so Dependabot and agents can use `skip-changelog`. |
 | **Status** | `open` |
 
+### 2026-10-10 - changesets changelog path is relative to .changeset/
+
+| | |
+| --- | --- |
+| **Lesson** | Custom `changelog` paths in `.changeset/config.json` resolve from the `.changeset/` directory. `./scripts/...` breaks on `changeset version` (CLI 2 and 3); use `../scripts/changeset-changelog.mjs`. CLI 3 is ESM-only but the existing `.mjs` adapter loads fine once the path is correct. |
+| **Action** | Fix the path before merging `@changesets/cli` 3.x; verify with `npx changeset version --snapshot` (do not commit the snapshot). |
+| **Status** | `fixed` (this PR) |
+
