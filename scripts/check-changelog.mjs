@@ -37,10 +37,24 @@ function hasChangeset(files) {
   );
 }
 
+function prAuthorFromEvent() {
+  const eventPath = process.env.GITHUB_EVENT_PATH;
+  if (!eventPath || !existsSync(eventPath)) return "";
+  const event = JSON.parse(readFileSync(eventPath, "utf8"));
+  return event.pull_request?.user?.login || event.issue?.user?.login || "";
+}
+
 function main() {
   const labels = labelsFromEvent();
   if (labels.includes("skip-changelog")) {
     console.log("OK changelog: skip-changelog label present");
+    return;
+  }
+
+  const actor = process.env.GITHUB_ACTOR || "";
+  const author = prAuthorFromEvent();
+  if (actor === "dependabot[bot]" || author === "dependabot[bot]") {
+    console.log("OK changelog: Dependabot PR (actor/author skip)");
     return;
   }
 

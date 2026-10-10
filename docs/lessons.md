@@ -64,3 +64,11 @@ Status values: `open` | `fixed` | `promoted`
 | **Action** | Run `readme:gen` in the same PR when guards fail on AUTO freshness after renames. |
 | **Status** | `fixed` (this PR) |
 
+### 2026-10-10 - Dependabot skip must use PR author
+
+| | |
+| --- | --- |
+| **Lesson** | Skipping CI steps only when `github.actor == dependabot[bot]` fails after an agent merges `main` into the Dependabot branch: the synchronize event actor is the pusher, not Dependabot. |
+| **Action** | Also skip when `github.event.pull_request.user.login == dependabot[bot]` (and mirror that in `check-changelog.mjs`). |
+| **Status** | `fixed` (this PR) |
+
