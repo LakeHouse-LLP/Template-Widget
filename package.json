@@ -1,6 +1,6 @@
 {
   "name": "@lakehouse/template-widget",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Standalone LakeHouse Studio widget template (agent-friendly; see .lakehouse/org.json)",
   "type": "module",
   "engines": {

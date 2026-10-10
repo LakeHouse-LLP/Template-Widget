@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.1.0
+
+### Minor Changes
+
+- [#5](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/5) [`17e04bf`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/17e04bf7ac0d4b8e4fce0870f9aa57f800f47603) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Contributor growth: CONTRIBUTING/Codespaces, GOVERNANCE/ROADMAP, starter issues, listings, maintainer playbook, all-contributors, and SHA-pinned welcome workflow.
+
+- [#3](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/3) [`8b54ff8`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/8b54ff8ab1fbdc00519583aca695e7c36c998502) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Add the flagship public release system: changesets, CI-only `vX.Y.Z` tags, draft GitHub Releases with checksums and build provenance, and npm OIDC trusted publishing.
+
+- [#4](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/4) [`2ff370a`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/2ff370ae5a33740cc1cb54c8f35e0a82b0c2df8f) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Add SEO/discoverability standard, Starlight docs scaffold (dark-only, accent token), CITATION/launch/Sen verification docs, and CI check for README + GitHub description/topics.
+
+- [#6](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/6) [`fb83cac`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/fb83cacbf7a2b2e3c3c1a1fe95577ff2765088b7) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Rework Template-OpenSource into Template-Widget: three-mode dynamic UI/UX (apps/site + host entry + agent overlays), widget.json customization points, hello-world core, mock host preview, contract tests, placeholder @lakehouse/widget-sdk stub, and release assets for the loadable bundle.
+
+### Patch Changes
+
+- [#10](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/10) [`d10bd73`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/d10bd73a49a487b446139e2ee8fd516c85333547) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Apply LakeHouse Studio brand kit v0.3: README header, default theme tokens (graphite ramp, accent, Geist), writing-style copy lint, standalone favicons.
+
+- [#15](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/15) [`64d3679`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/64d3679d2db4f388b3d1c9723dc615b39ab110a0) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Continuous self-improvement house rule: AGENTS.md close-out, docs/lessons.md log, PR template What did we learn? section.
+
+- [#9](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/9) [`15b879b`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/15b879b41ce51c37f41bb132819d5a0e2ca4d99d) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Consume @lakehouse/design-contract (placeholder stub): token-only hello widget, engines.designContract range, hardcoded-values lint, preview default/example skin switch.
+
+- [#14](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/14) [`c84f721`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/c84f721be988a92d02087f44d9e6b63a27be66d7) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Fix main CI: pin changesets/action to v1 for CLI v2; do not fail discoverability strict while GitHub description is still the TEMPLATE placeholder (Sen-only UI).
+  Also fix welcome.yml snake_case inputs for first-interaction v3.
+
+- [#8](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/8) [`643710c`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/643710c65bd65e6a660124ae80d07f7f54282e52) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Document GitHub merge queue preference for public Template-Widget (ruleset, merge_group CI, stacked enqueue); agents never enqueue or merge.
+
+- [#7](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/pull/7) [`6337968`](https://github.com/LakeHouse-LLP/Template-LakeHouse-Widget/commit/633796875f6771f61746f4d65fe2d3d3f8313c18) Thanks [@zsenarchitect](https://github.com/zsenarchitect)! - Document Vercel shared vs project env-var rule for the standalone public site, with inventory/rotation templates and AGENTS.md Never-do for vercel env mutations.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
