@@ -21,8 +21,8 @@ Status values: `open` | `fixed` | `promoted`
 | | |
 | --- | --- |
 | **Lesson** | `changesets/action` v2 requires Changesets CLI v3. Pinning action v2 while `@changesets/cli` is still on v2 breaks `version-pr` on `main` after merge. |
-| **Action** | Prefer keeping pins.json and the workflow SHA in lockstep with the installed CLI major; draft fix tracked as PR #14 (`cursor/main-ci-fixes-d9d4`) if still open. |
-| **Status** | `open` |
+| **Action** | Prefer keeping pins.json and the workflow SHA in lockstep with the installed CLI major; fixed on main via #14. |
+| **Status** | `fixed` (#14) |
 
 ### 2026-10-09 - first-interaction v3 input names
 
@@ -30,4 +30,12 @@ Status values: `open` | `fixed` | `promoted`
 | --- | --- |
 | **Lesson** | `actions/first-interaction` v3 expects snake_case inputs (`issue_message`, `pr_message`, `repo_token`). Kebab-case names fail the welcome workflow. `pull_request_target` runs the workflow file from the **base** branch, so a PR cannot green its own welcome check until main has the fix. |
 | **Action** | Ship snake_case `welcome.yml` on the continuous-self-improvement PR (and/or main-ci-fixes #14) so the next merge to main cures it. |
-| **Status** | `fixed` (workflow on this branch; base-branch check stays red until merge) |
+| **Status** | `fixed` (#14 / #15) |
+
+### 2026-10-10 - Dependabot vs changelog and changeset status
+
+| | |
+| --- | --- |
+| **Lesson** | Dependabot PRs fail `guards` (`check:changelog --strict`) and `version-pr` (`changeset status --since=origin/main`) because they change packages without a CHANGELOG/changeset or `skip-changelog` label. |
+| **Action** | Skip those steps when `github.actor == dependabot[bot]`, apply `skip-changelog` in `.github/dependabot.yml`, and skip the welcome job for `*[bot]` actors. |
+| **Status** | `fixed` (this PR) |

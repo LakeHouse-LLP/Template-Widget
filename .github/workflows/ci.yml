@@ -97,7 +97,10 @@ jobs:
         run: npm test
 
       - name: Changelog policy
-        if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
+        # Dependabot dependency bumps are labeled skip-changelog; also skip by actor.
+        if: >
+          (github.event_name == 'pull_request' || github.event_name == 'merge_group')
+          && github.actor != 'dependabot[bot]'
         run: npm run check:changelog -- --strict
 
   gitleaks:
