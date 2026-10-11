@@ -72,6 +72,6 @@
     "@changesets/get-github-info": "^1.0.1",
     "@types/node": "^22.13.10",
     "esbuild": "^0.25.0",
-    "typescript": "^5.8.2"
+    "typescript": "^7.0.2"
   }
 }
